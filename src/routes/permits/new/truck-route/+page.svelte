@@ -312,7 +312,7 @@
 		const validStops = stops.filter(s => s.lat !== null && s.lng !== null);
 
 		const newPermit = permits.addPermit({
-			type: 'truck_route',
+			type: 'commercial_vehicle',
 			title: `${truckType} Route Permit - ${validStops[0]?.address || 'DC Area'}`,
 			description: `${truckType} route permit with ${validStops.length} stops. Vehicle: ${weight.toLocaleString()} lbs, ${height}ft H x ${width}ft W x ${length}ft L.`,
 			status: 'submitted',

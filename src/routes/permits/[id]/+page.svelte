@@ -23,7 +23,14 @@
 		under_review: { label: 'Under Review', color: 'permit-review', bg: 'bg-purple-50', textColor: 'text-permit-review', borderColor: 'border-purple-200', icon: 'M15 12a3 3 0 11-6 0 3 3 0 016 0zM2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z' },
 		approved: { label: 'Approved', color: 'permit-approved', bg: 'bg-green-50', textColor: 'text-permit-approved', borderColor: 'border-green-200', icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' },
 		denied: { label: 'Denied', color: 'permit-denied', bg: 'bg-red-50', textColor: 'text-permit-denied', borderColor: 'border-red-200', icon: 'M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z' },
-		expired: { label: 'Expired', color: 'gray-400', bg: 'bg-gray-50', textColor: 'text-gray-400', borderColor: 'border-gray-200', icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' }
+		expired: { label: 'Expired', color: 'gray-400', bg: 'bg-gray-50', textColor: 'text-gray-400', borderColor: 'border-gray-200', icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' },
+		returned: { label: 'Returned', color: 'amber-600', bg: 'bg-amber-50', textColor: 'text-amber-600', borderColor: 'border-amber-200', icon: 'M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3' },
+		paid: { label: 'Paid', color: 'green-600', bg: 'bg-green-50', textColor: 'text-green-600', borderColor: 'border-green-200', icon: 'M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z' },
+		issued: { label: 'Issued', color: 'permit-approved', bg: 'bg-green-100', textColor: 'text-permit-approved', borderColor: 'border-green-300', icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' },
+		inspection_scheduled: { label: 'Inspection Scheduled', color: 'blue-600', bg: 'bg-blue-50', textColor: 'text-blue-600', borderColor: 'border-blue-200', icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' },
+		inspection_passed: { label: 'Inspection Passed', color: 'permit-approved', bg: 'bg-green-50', textColor: 'text-permit-approved', borderColor: 'border-green-200', icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' },
+		inspection_failed: { label: 'Inspection Failed', color: 'permit-denied', bg: 'bg-red-50', textColor: 'text-permit-denied', borderColor: 'border-red-200', icon: 'M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z' },
+		stop_work: { label: 'Stop Work Order', color: 'permit-denied', bg: 'bg-red-100', textColor: 'text-permit-denied', borderColor: 'border-red-200', icon: 'M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636' }
 	};
 
 	// ─── Type Icons (SVG paths) ─────────────────────────────────────
@@ -575,7 +582,7 @@
 					<!-- Right Column: Type-Specific Info -->
 					<div class="space-y-6">
 						<!-- Truck Route: Vehicle Info -->
-						{#if permit.type === 'truck_route' && permit.truckInfo}
+						{#if permit.type === 'commercial_vehicle' && permit.truckInfo}
 							<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 animate-slide-up" style="animation-delay: 200ms">
 								<h3 class="text-sm font-semibold text-gov-400 uppercase tracking-wider mb-4">Vehicle Information</h3>
 								<div class="space-y-4">
@@ -647,7 +654,7 @@
 						{/if}
 
 						<!-- Public Space: Event Info -->
-						{#if permit.type === 'public_space'}
+						{#if permit.type === 'public_space_rental'}
 							<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 animate-slide-up" style="animation-delay: 200ms">
 								<h3 class="text-sm font-semibold text-gov-400 uppercase tracking-wider mb-4">Event Details</h3>
 								<div class="flex items-center gap-3 mb-4">
@@ -669,7 +676,7 @@
 						{/if}
 
 						<!-- Infrastructure: Damage Info -->
-						{#if permit.type === 'infrastructure'}
+						{#if permit.type === 'construction_excavation'}
 							<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 animate-slide-up" style="animation-delay: 200ms">
 								<h3 class="text-sm font-semibold text-gov-400 uppercase tracking-wider mb-4">Infrastructure Report</h3>
 								<div class="flex items-center gap-3 mb-4">
@@ -705,7 +712,7 @@
 						{/if}
 
 						<!-- Tree Removal: Species Info -->
-						{#if permit.type === 'tree_removal'}
+						{#if permit.type === 'special_heritage_tree'}
 							<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 animate-slide-up" style="animation-delay: 200ms">
 								<h3 class="text-sm font-semibold text-gov-400 uppercase tracking-wider mb-4">Tree Details</h3>
 								<div class="flex items-center gap-3 mb-4">

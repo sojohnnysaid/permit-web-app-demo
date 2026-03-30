@@ -66,7 +66,7 @@
 		await new Promise((r) => setTimeout(r, 1200));
 
 		const newPermit = permits.addPermit({
-			type: 'public_space',
+			type: 'public_space_rental',
 			title: `${eventType} - Street Parking & Space Reservation`,
 			description,
 			status: 'submitted',

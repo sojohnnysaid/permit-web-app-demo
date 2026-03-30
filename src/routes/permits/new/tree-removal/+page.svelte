@@ -62,7 +62,7 @@
 		await new Promise((r) => setTimeout(r, 1200));
 
 		const newPermit = permits.addPermit({
-			type: 'tree_removal',
+			type: 'special_heritage_tree',
 			title: `${situation} - ${treeSpecies || 'Unknown Species'}`,
 			description,
 			status: 'submitted',

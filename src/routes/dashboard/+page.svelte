@@ -96,7 +96,14 @@
 			icon: '✅'
 		},
 		denied: { label: 'Denied', color: 'text-permit-denied', bg: 'bg-red-50', icon: '❌' },
-		expired: { label: 'Expired', color: 'text-gray-400', bg: 'bg-gray-50', icon: '⏰' }
+		expired: { label: 'Expired', color: 'text-gray-400', bg: 'bg-gray-50', icon: '⏰' },
+		returned: { label: 'Returned', color: 'text-amber-600', bg: 'bg-amber-50', icon: '↩️' },
+		paid: { label: 'Paid', color: 'text-green-600', bg: 'bg-green-50', icon: '💳' },
+		issued: { label: 'Issued', color: 'text-permit-approved', bg: 'bg-green-100', icon: '✅' },
+		inspection_scheduled: { label: 'Inspection Scheduled', color: 'text-blue-600', bg: 'bg-blue-50', icon: '📋' },
+		inspection_passed: { label: 'Inspection Passed', color: 'text-permit-approved', bg: 'bg-green-50', icon: '✓' },
+		inspection_failed: { label: 'Inspection Failed', color: 'text-permit-denied', bg: 'bg-red-50', icon: '✗' },
+		stop_work: { label: 'Stop Work Order', color: 'text-permit-denied', bg: 'bg-red-100', icon: '🚫' }
 	};
 
 	// Type icon SVGs

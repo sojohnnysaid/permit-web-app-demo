@@ -1,7 +1,7 @@
 // Fake permit data store using Svelte 5 Runes
 
-export type PermitStatus = 'draft' | 'submitted' | 'under_review' | 'approved' | 'denied' | 'expired';
-export type PermitType = 'truck_route' | 'public_space' | 'infrastructure' | 'tree_removal';
+export type PermitStatus = 'draft' | 'submitted' | 'under_review' | 'returned' | 'approved' | 'denied' | 'paid' | 'issued' | 'inspection_scheduled' | 'inspection_passed' | 'inspection_failed' | 'stop_work' | 'expired';
+export type PermitType = 'parking_occupancy' | 'construction_excavation' | 'commercial_vehicle' | 'public_space_rental' | 'special_heritage_tree';
 
 export interface PermitAddress {
 	address: string;
@@ -51,29 +51,35 @@ export interface Permit {
 }
 
 export const PERMIT_TYPE_META: Record<PermitType, { label: string; icon: string; color: string; description: string }> = {
-	truck_route: {
-		label: 'Commercial Vehicle Route',
-		icon: 'truck',
+	parking_occupancy: {
+		label: 'Parking / Occupancy',
+		icon: 'parking',
 		color: 'gov',
+		description: 'Metered/unmetered curbside parking, sidewalk, alley, and travel lane occupancy'
+	},
+	construction_excavation: {
+		label: 'Construction / Excavation',
+		icon: 'construction',
+		color: 'permit-pending',
+		description: 'Street cuts, utility work, building construction impacting public right-of-way'
+	},
+	commercial_vehicle: {
+		label: 'Commercial Vehicle',
+		icon: 'truck',
+		color: 'civic',
 		description: 'Oversize/overweight vehicle single haul permits with route planning'
 	},
-	public_space: {
-		label: 'Public Space / Event',
+	public_space_rental: {
+		label: 'Public Space Rental / Annual',
 		icon: 'calendar',
-		color: 'civic',
-		description: 'Wedding parking, street closures, sidewalk cafes, block parties'
+		color: 'permit-review',
+		description: 'Event closures, sidewalk cafes, block parties, annual space rentals'
 	},
-	infrastructure: {
-		label: 'Infrastructure Report',
-		icon: 'alert',
-		color: 'permit-pending',
-		description: 'Potholes, water/sewage damage, gas line issues, road hazards'
-	},
-	tree_removal: {
-		label: 'Tree Removal / Special Tree',
+	special_heritage_tree: {
+		label: 'Special / Heritage Tree Permit',
 		icon: 'tree',
 		color: 'permit-approved',
-		description: 'Fallen tree removal, hazardous tree trimming, heritage tree permits'
+		description: 'Special tree removal, heritage tree work, emergency fallen tree response'
 	}
 };
 
@@ -81,7 +87,7 @@ export const PERMIT_TYPE_META: Record<PermitType, { label: string; icon: string;
 const SEED_PERMITS: Permit[] = [
 	{
 		id: 'P-2026-001',
-		type: 'truck_route',
+		type: 'commercial_vehicle',
 		title: 'Concrete Delivery - Capitol Hill Project',
 		description: 'Cement mixer route from Bladensburg Rd depot to 3rd St SE construction site. Overweight vehicle requiring designated truck route.',
 		status: 'approved',
@@ -110,7 +116,7 @@ const SEED_PERMITS: Permit[] = [
 	},
 	{
 		id: 'P-2026-002',
-		type: 'public_space',
+		type: 'public_space_rental',
 		title: 'Wedding Reception - Street Parking Reservation',
 		description: 'Reserve 6 parking spaces on O St NW for wedding guests. Saturday event, 12 PM - 11 PM.',
 		status: 'under_review',
@@ -129,7 +135,7 @@ const SEED_PERMITS: Permit[] = [
 	},
 	{
 		id: 'P-2026-003',
-		type: 'infrastructure',
+		type: 'construction_excavation',
 		title: 'Large Pothole - Georgia Ave NW',
 		description: 'Dangerous pothole approximately 2ft wide and 8 inches deep in the right lane. Multiple flat tires reported.',
 		status: 'submitted',
@@ -147,7 +153,7 @@ const SEED_PERMITS: Permit[] = [
 	},
 	{
 		id: 'P-2026-004',
-		type: 'tree_removal',
+		type: 'special_heritage_tree',
 		title: 'Fallen Oak Tree - After Storm',
 		description: 'Large oak tree fell during storm, blocking half of residential street and damaging fence. Immediate removal needed.',
 		status: 'approved',
@@ -167,7 +173,7 @@ const SEED_PERMITS: Permit[] = [
 	},
 	{
 		id: 'P-2026-005',
-		type: 'infrastructure',
+		type: 'construction_excavation',
 		title: 'Water Main Break - H St NE',
 		description: 'Water bubbling up through pavement, flooding curb lane. DC Water notified.',
 		status: 'under_review',
@@ -186,7 +192,7 @@ const SEED_PERMITS: Permit[] = [
 	},
 	{
 		id: 'P-2026-006',
-		type: 'truck_route',
+		type: 'commercial_vehicle',
 		title: 'Steel Beam Delivery - Navy Yard',
 		description: 'Oversize tractor-trailer hauling steel I-beams from Virginia to Navy Yard construction site. Requires escort.',
 		status: 'draft',
@@ -213,7 +219,7 @@ const SEED_PERMITS: Permit[] = [
 	},
 	{
 		id: 'P-2026-007',
-		type: 'infrastructure',
+		type: 'construction_excavation',
 		title: 'Gas Leak Smell - Adams Morgan',
 		description: 'Strong gas smell near storm drain on 18th St. Washington Gas contacted.',
 		status: 'submitted',
@@ -257,7 +263,7 @@ class PermitStore {
 	addPermit(permit: Omit<Permit, 'id' | 'referenceNumber' | 'submittedAt' | 'updatedAt' | 'applicant'>): Permit {
 		const now = new Date().toISOString();
 		const num = String(this.permits.length + 1).padStart(3, '0');
-		const typePrefix = { truck_route: 'CV', public_space: 'PS', infrastructure: 'IR', tree_removal: 'TR' };
+		const typePrefix: Record<PermitType, string> = { parking_occupancy: 'PO', construction_excavation: 'CE', commercial_vehicle: 'CV', public_space_rental: 'PS', special_heritage_tree: 'ST' };
 		const newPermit: Permit = {
 			...permit,
 			id: `P-2026-${num}`,

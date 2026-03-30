@@ -61,7 +61,7 @@
 		await new Promise((r) => setTimeout(r, 1200));
 
 		const newPermit = permits.addPermit({
-			type: 'infrastructure',
+			type: 'construction_excavation',
 			title: `${damageType} - ${address || 'Reported Location'}`,
 			description,
 			status: 'submitted',
