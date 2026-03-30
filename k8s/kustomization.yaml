@@ -1,0 +1,11 @@
+apiVersion: kustomize.dev/v1beta1
+kind: Kustomization
+
+namespace: tops
+
+resources:
+  - deployment.yaml
+  - service.yaml
+
+commonLabels:
+  app.kubernetes.io/part-of: tops
