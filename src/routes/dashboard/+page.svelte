@@ -502,8 +502,9 @@
 						{@const typeMeta = PERMIT_TYPE_META[permit.type]}
 						{@const statusCfg = STATUS_CONFIG[permit.status]}
 						{@const sla = permit.slaDeadline ? slaCountdown(permit.slaDeadline) : null}
-						<div
-							class="group bg-white rounded-xl shadow-card hover:shadow-card-hover border border-gov-100 hover:border-gov-200 transition-all duration-200 overflow-hidden animate-slide-up"
+						<a
+							href="/permits/{permit.id}"
+							class="block group bg-white rounded-xl shadow-card hover:shadow-card-hover border border-gov-100 hover:border-gov-200 transition-all duration-200 overflow-hidden animate-slide-up cursor-pointer"
 							style="animation-delay: {300 + i * 60}ms"
 						>
 							<div class="p-5 sm:p-6">
@@ -703,7 +704,7 @@
 												? 'bg-gradient-to-r from-gov-500 to-civic-400'
 												: 'bg-gradient-to-r from-gray-300 to-gray-200'}"
 							></div>
-						</div>
+						</a>
 					{/each}
 				{/if}
 			</div>
