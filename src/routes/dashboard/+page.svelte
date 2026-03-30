@@ -127,6 +127,53 @@
 		{ key: 'approved' as const, label: 'Approved', count: () => permits.approvedCount }
 	];
 
+	// AI status explanation helper
+	function getAIStatusExplanation(permit: typeof filteredPermits[number]): string {
+		const typeName = PERMIT_TYPE_META[permit.type].label;
+		const reviewer = permit.assignedReviewer ?? 'a city examiner';
+		const department = permit.type === 'construction_excavation'
+			? 'Public Works'
+			: permit.type === 'commercial_vehicle'
+				? 'Commercial Routing'
+				: permit.type === 'special_heritage_tree'
+					? 'Urban Forestry'
+					: 'Transportation Operations';
+		const slaDate = permit.slaDeadline
+			? new Date(permit.slaDeadline).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+			: 'TBD';
+		const expiryDate = permit.expiresAt
+			? new Date(permit.expiresAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+			: 'the end of the permit term';
+
+		switch (permit.status) {
+			case 'submitted':
+				return `Your ${typeName} permit has been received and queued for review. Estimated assignment within 1-2 business days.`;
+			case 'under_review':
+				return `Your ${typeName} permit is being reviewed by ${reviewer} in the ${department} division. Expected decision by ${slaDate}.`;
+			case 'approved':
+				return `Your ${typeName} permit has been approved. Next step: complete payment to receive your issued permit.`;
+			case 'denied':
+				return `Your ${typeName} permit was not approved. Review the examiner's notes and consider resubmission.`;
+			case 'returned':
+				return `Additional information has been requested for your ${typeName} permit. Please review and respond.`;
+			case 'paid':
+			case 'issued':
+				return `Your ${typeName} permit is active and issued. Valid through ${expiryDate}.`;
+			case 'expired':
+				return `Your ${typeName} permit has expired. Submit a renewal application to continue operations.`;
+			case 'inspection_scheduled':
+				return `An inspection has been scheduled for your ${typeName} permit. Check the details for date and time.`;
+			case 'inspection_passed':
+				return `Your ${typeName} permit inspection has passed. Your permit remains in good standing.`;
+			case 'inspection_failed':
+				return `Your ${typeName} permit inspection did not pass. Review the inspector's notes for required corrections.`;
+			case 'stop_work':
+				return `A stop work order has been issued for your ${typeName} permit. All work must cease until resolved.`;
+			default:
+				return '';
+		}
+	}
+
 	function handleLogout() {
 		auth.logout();
 		goto('/login');
@@ -712,6 +759,14 @@
 												: 'bg-gradient-to-r from-gray-300 to-gray-200'}"
 							></div>
 						</a>
+						{#if permit.status !== 'draft'}
+							<div class="flex items-start gap-1.5 mt-1 px-4 pb-2">
+								<svg class="w-3.5 h-3.5 text-gov-300 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+									<path d="M12 2l2.09 6.26L20.18 9.27l-5.09 3.9L16.18 19.27 12 15.77l-4.18 3.5 1.09-6.1-5.09-3.9 6.09-1.01L12 2z"/>
+								</svg>
+								<span class="text-xs italic text-gov-400 leading-snug">{getAIStatusExplanation(permit)}</span>
+							</div>
+						{/if}
 					{/each}
 				{/if}
 			</div>
