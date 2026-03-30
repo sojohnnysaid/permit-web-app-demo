@@ -26,13 +26,9 @@ test.describe('Phase 3: Reviewer Work Queue & GIS Conflict', () => {
 		test.setTimeout(60000);
 		await loginAsRole(page, 'Reviewer');
 
-		// Navigate to reviewer queue
-		const queueLink = page.locator('a:has-text("Work Queue"), a[href="/reviewer"]').first();
-		if (await queueLink.isVisible({ timeout: 3000 }).catch(() => false)) {
-			await queueLink.click();
-		} else {
-			await page.goto('/reviewer', { waitUntil: 'networkidle' });
-		}
+		// Navigate to reviewer queue via nav link (preserves SPA state)
+		const queueLink = page.locator('a:has-text("Work Queue")').first();
+		await queueLink.click({ timeout: 5000 }).catch(() => {});
 		await page.waitForTimeout(2000);
 
 		await page.screenshot({ path: 'tests/screenshots/p3-01-reviewer-queue.png', fullPage: true });
@@ -49,12 +45,8 @@ test.describe('Phase 3: Reviewer Work Queue & GIS Conflict', () => {
 		await loginAsRole(page, 'Reviewer');
 
 		// Navigate to queue then click first permit
-		const queueLink = page.locator('a:has-text("Work Queue"), a[href="/reviewer"]').first();
-		if (await queueLink.isVisible({ timeout: 3000 }).catch(() => false)) {
-			await queueLink.click();
-		} else {
-			await page.goto('/reviewer', { waitUntil: 'networkidle' });
-		}
+		const queueLink = page.locator('a:has-text("Work Queue")').first();
+		await queueLink.click({ timeout: 5000 }).catch(() => {});
 		await page.waitForTimeout(2000);
 
 		// Click first review link
@@ -79,12 +71,8 @@ test.describe('Phase 3: Reviewer Work Queue & GIS Conflict', () => {
 		await loginAsRole(page, 'Reviewer');
 
 		// Go directly to a submitted permit review
-		const queueLink = page.locator('a:has-text("Work Queue"), a[href="/reviewer"]').first();
-		if (await queueLink.isVisible({ timeout: 3000 }).catch(() => false)) {
-			await queueLink.click();
-		} else {
-			await page.goto('/reviewer', { waitUntil: 'networkidle' });
-		}
+		const queueLink = page.locator('a:has-text("Work Queue")').first();
+		await queueLink.click({ timeout: 5000 }).catch(() => {});
 		await page.waitForTimeout(2000);
 
 		// Click any review link
