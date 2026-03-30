@@ -1,6 +1,8 @@
 <script lang="ts">
 	import '../app.css';
 	import favicon from '$lib/assets/favicon.svg';
+	import ChatPanel from '$lib/components/ChatPanel.svelte';
+	import { auth } from '$lib/stores/auth.svelte';
 
 	let { children } = $props();
 </script>
@@ -14,3 +16,7 @@
 </svelte:head>
 
 {@render children()}
+
+{#if auth.isAuthenticated}
+	<ChatPanel />
+{/if}
