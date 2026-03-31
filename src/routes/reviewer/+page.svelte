@@ -5,12 +5,10 @@
 	import { reviewerStore } from '$lib/stores/reviewer.svelte';
 	import NavHeader from '$lib/components/NavHeader.svelte';
 
-	// Auth guard: redirect if not authenticated or if applicant role
+	// Auth guard
 	$effect(() => {
 		if (!auth.isAuthenticated) {
 			goto('/login');
-		} else if (auth.role === 'applicant') {
-			goto('/dashboard');
 		}
 	});
 

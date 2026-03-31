@@ -11,12 +11,10 @@
 		type AIInsight
 	} from '$lib/stores/analytics.svelte';
 
-	// Auth guard: admin only
+	// Auth guard
 	$effect(() => {
 		if (!auth.isAuthenticated) {
 			goto('/login');
-		} else if (auth.role !== 'admin') {
-			goto('/dashboard');
 		}
 	});
 
