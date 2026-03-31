@@ -31,3 +31,5 @@ vite.config.ts.timestamp-*
 /test-results/
 /playwright-report/
 /screenshots/
+tests/results/
+tests/screenshots/
