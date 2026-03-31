@@ -351,7 +351,7 @@
 							Select Your Role
 						</h1>
 						<p class="text-sm text-gov-500 mt-2 font-sans">
-							Welcome back, <span class="font-semibold text-gov-700">{auth.user?.name}</span>. Choose how you'd like to access TOPS.
+							Welcome back{auth.user?.name ? ', ' : ''}<span class="font-semibold text-gov-700">{auth.user?.name ?? ''}</span>. Choose how you'd like to access TOPS.
 						</p>
 					</div>
 
@@ -360,7 +360,7 @@
 						{#each activeRoles as role, i}
 							{@const colors = roleColors[role.name]}
 							{@const iconPath = roleIcons[role.name]}
-							{@const roleKey = role.name.toLowerCase() as UserRole}
+							{@const roleKey = (role.name === 'Administrator' ? 'admin' : role.name.toLowerCase()) as UserRole}
 							<button
 								onclick={() => handleRoleSelect(roleKey)}
 								class="group relative flex flex-col items-center p-5 rounded-xl border-2 border-gov-100 bg-white/80 backdrop-blur-xl hover:border-transparent hover:ring-2 {colors.ring} hover:shadow-lg transition-all duration-300 text-left"
