@@ -78,7 +78,7 @@
 <NavHeader />
 
 {#if auth.isAuthenticated}
-	<div class="min-h-screen bg-surface-alt pt-6 animate-fade-in">
+	<div class="min-h-screen bg-surface-alt pt-6">
 		<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
 			{#if !permit}
 				<!-- Permit not found -->
@@ -251,7 +251,7 @@
 
 	<!-- Toast notification -->
 	{#if showToast}
-		<div class="fixed bottom-6 right-6 z-50 animate-slide-up">
+		<div class="fixed bottom-6 right-6 z-50">
 			<div class="bg-gov-800 text-white px-5 py-3 rounded-xl shadow-modal flex items-center gap-3">
 				<svg class="w-5 h-5 animate-spin text-civic-400" fill="none" viewBox="0 0 24 24">
 					<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>

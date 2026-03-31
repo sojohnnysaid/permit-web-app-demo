@@ -185,7 +185,7 @@
 </svelte:head>
 
 {#if auth.isAuthenticated}
-	<div class="min-h-screen bg-surface-alt animate-fade-in">
+	<div class="min-h-screen bg-surface-alt">
 		<!-- Top Bar -->
 		<header
 			class="sticky top-0 z-30 bg-white/80 backdrop-blur-xl border-b border-gov-100 shadow-sm"
@@ -296,7 +296,7 @@
 			<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
 				<!-- Draft -->
 				<div
-					class="bg-white rounded-xl p-4 shadow-card hover:shadow-card-hover transition-shadow duration-200 border border-gray-100 animate-slide-up"
+					class="bg-white rounded-xl p-4 shadow-card hover:shadow-card-hover transition-shadow duration-200 border border-gray-100"
 				>
 					<div class="flex items-center gap-3">
 						<div class="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center">
@@ -323,8 +323,7 @@
 
 				<!-- Submitted -->
 				<div
-					class="bg-white rounded-xl p-4 shadow-card hover:shadow-card-hover transition-shadow duration-200 border border-gov-100 animate-slide-up"
-					style="animation-delay: 50ms"
+					class="bg-white rounded-xl p-4 shadow-card hover:shadow-card-hover transition-shadow duration-200 border border-gov-100"
 				>
 					<div class="flex items-center gap-3">
 						<div class="w-10 h-10 rounded-lg bg-gov-50 flex items-center justify-center">
@@ -351,8 +350,7 @@
 
 				<!-- Under Review -->
 				<div
-					class="bg-white rounded-xl p-4 shadow-card hover:shadow-card-hover transition-shadow duration-200 border border-purple-100 animate-slide-up"
-					style="animation-delay: 100ms"
+					class="bg-white rounded-xl p-4 shadow-card hover:shadow-card-hover transition-shadow duration-200 border border-purple-100"
 				>
 					<div class="flex items-center gap-3">
 						<div class="w-10 h-10 rounded-lg bg-purple-50 flex items-center justify-center">
@@ -385,8 +383,7 @@
 
 				<!-- Approved -->
 				<div
-					class="bg-white rounded-xl p-4 shadow-card hover:shadow-card-hover transition-shadow duration-200 border border-green-100 animate-slide-up"
-					style="animation-delay: 150ms"
+					class="bg-white rounded-xl p-4 shadow-card hover:shadow-card-hover transition-shadow duration-200 border border-green-100"
 				>
 					<div class="flex items-center gap-3">
 						<div class="w-10 h-10 rounded-lg bg-green-50 flex items-center justify-center">
@@ -413,8 +410,7 @@
 
 				<!-- Denied -->
 				<div
-					class="bg-white rounded-xl p-4 shadow-card hover:shadow-card-hover transition-shadow duration-200 border border-red-100 animate-slide-up"
-					style="animation-delay: 200ms"
+					class="bg-white rounded-xl p-4 shadow-card hover:shadow-card-hover transition-shadow duration-200 border border-red-100"
 				>
 					<div class="flex items-center gap-3">
 						<div class="w-10 h-10 rounded-lg bg-red-50 flex items-center justify-center">
@@ -510,7 +506,7 @@
 			<div class="space-y-4">
 				{#if filteredPermits.length === 0}
 					<div
-						class="bg-white rounded-xl shadow-card border border-gov-100 p-12 text-center animate-fade-in"
+						class="bg-white rounded-xl shadow-card border border-gov-100 p-12 text-center"
 					>
 						<div class="w-16 h-16 rounded-full bg-gov-50 flex items-center justify-center mx-auto mb-4">
 							<svg

@@ -3,7 +3,6 @@
 	import { PERMIT_TYPE_META } from '$lib/stores/permits.svelte';
 	import type { PermitType } from '$lib/stores/permits.svelte';
 	import { goto } from '$app/navigation';
-	import { onMount } from 'svelte';
 
 	// Auth guard
 	$effect(() => {
@@ -12,17 +11,6 @@
 		}
 	});
 
-	// Staggered animation state
-	let visibleCards = $state<number[]>([]);
-
-	onMount(() => {
-		const types = Object.keys(PERMIT_TYPE_META);
-		types.forEach((_, i) => {
-			setTimeout(() => {
-				visibleCards = [...visibleCards, i];
-			}, 100 + i * 120);
-		});
-	});
 
 	const ROUTE_MAP: Record<PermitType, string> = {
 		parking_occupancy: '/permits/new/parking-occupancy',
@@ -114,7 +102,7 @@
 				{@const isTopRow = i < 3}
 				<button
 					onclick={() => handleCardClick(type as PermitType)}
-					class="group relative cursor-pointer overflow-hidden rounded-xl border border-gov-100 border-l-4 {colors.border} bg-surface p-6 text-left shadow-card transition-all duration-300 ease-out hover:shadow-card-hover hover:scale-[1.02] {colors.bg} {visibleCards.includes(i) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} {isTopRow ? 'md:col-span-2' : 'md:col-span-3'}"
+					class="group relative cursor-pointer overflow-hidden rounded-xl border border-gov-100 border-l-4 {colors.border} bg-surface p-6 text-left shadow-card transition-all duration-300 ease-out hover:shadow-card-hover hover:scale-[1.02] {colors.bg} {isTopRow ? 'md:col-span-2' : 'md:col-span-3'}"
 					style="transition: opacity 0.4s ease-out, transform 0.4s ease-out, box-shadow 0.3s ease, background-color 0.3s ease;"
 				>
 					<!-- Gradient accent top-right corner -->

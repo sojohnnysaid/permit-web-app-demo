@@ -7,7 +7,6 @@
 	let password = $state('');
 	let showPassword = $state(false);
 	let shakeError = $state(false);
-	let mounted = $state(false);
 	let mfaCode = $state('482901');
 	let mfaError = $state('');
 	let showAllRoles = $state(false);
@@ -18,9 +17,7 @@
 	onMount(() => {
 		if (auth.isAuthenticated && auth.mfaVerified) {
 			goto('/dashboard');
-			return;
 		}
-		mounted = true;
 	});
 
 	async function handleSubmit(e: Event) {
@@ -84,8 +81,8 @@
 <div class="min-h-screen bg-gradient-to-br from-gov-900 via-gov-700 to-civic-600 flex items-center justify-center p-4 relative overflow-hidden">
 	<!-- Animated background elements -->
 	<div class="absolute inset-0 overflow-hidden pointer-events-none">
-		<div class="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-civic-500/10 blur-3xl animate-pulse"></div>
-		<div class="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-gov-400/10 blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+		<div class="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-civic-500/10 blur-3xl"></div>
+		<div class="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-gov-400/10 blur-3xl"></div>
 		<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-civic-600/5 blur-3xl"></div>
 		<!-- Subtle grid overlay -->
 		<div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px); background-size: 60px 60px;"></div>
@@ -93,7 +90,7 @@
 
 	<!-- Main card container -->
 	<div
-		class="relative w-full transition-all duration-700 {mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} {auth.mfaVerified ? 'max-w-2xl' : 'max-w-md'}"
+		class="relative w-full {auth.mfaVerified ? 'max-w-2xl' : 'max-w-md'}"
 	>
 		<!-- Card glow effect -->
 		<div class="absolute -inset-1 bg-gradient-to-r from-civic-500/20 via-gov-400/20 to-civic-500/20 rounded-2xl blur-lg opacity-60"></div>
@@ -132,7 +129,7 @@
 					<!-- Error Message -->
 					{#if auth.error}
 						<div
-							class="flex items-center gap-3 p-3 rounded-lg bg-red-50 border border-red-200 text-red-700 text-sm animate-fade-in {shakeError ? 'animate-shake' : ''}"
+							class="flex items-center gap-3 p-3 rounded-lg bg-red-50 border border-red-200 text-red-700 text-sm {shakeError ? 'animate-shake' : ''}"
 						>
 							<svg class="w-5 h-5 shrink-0 text-red-500" viewBox="0 0 20 20" fill="currentColor">
 								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
@@ -242,7 +239,7 @@
 				<!-- STEP 2: MFA VERIFICATION                    -->
 				<!-- ============================================ -->
 
-				<div class="animate-fade-in">
+				<div class="">
 					<!-- MFA Icon -->
 					<div class="text-center mb-8">
 						<div class="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-civic-600 to-civic-500 shadow-lg mb-4">
@@ -264,7 +261,7 @@
 					<!-- MFA Form -->
 					<form onsubmit={handleMfaVerify} class="space-y-5">
 						{#if mfaError}
-							<div class="flex items-center gap-3 p-3 rounded-lg bg-red-50 border border-red-200 text-red-700 text-sm animate-fade-in">
+							<div class="flex items-center gap-3 p-3 rounded-lg bg-red-50 border border-red-200 text-red-700 text-sm">
 								<svg class="w-5 h-5 shrink-0 text-red-500" viewBox="0 0 20 20" fill="currentColor">
 									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
 								</svg>
@@ -332,7 +329,7 @@
 				<!-- STEP 3: ROLE SELECTION                       -->
 				<!-- ============================================ -->
 
-				<div class="animate-fade-in">
+				<div class="">
 					<!-- Header -->
 					<div class="text-center mb-8">
 						<div class="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-gov-700 to-civic-600 shadow-lg mb-4">
@@ -360,8 +357,7 @@
 							{@const roleKey = role.name.toLowerCase() as UserRole}
 							<button
 								onclick={() => handleRoleSelect(roleKey)}
-								class="group relative flex flex-col items-center p-5 rounded-xl border-2 border-gov-100 bg-white/80 backdrop-blur-xl hover:border-transparent hover:ring-2 {colors.ring} hover:shadow-lg transition-all duration-300 text-left animate-slide-up"
-								style="animation-delay: {i * 100}ms;"
+								class="group relative flex flex-col items-center p-5 rounded-xl border-2 border-gov-100 bg-white/80 backdrop-blur-xl hover:border-transparent hover:ring-2 {colors.ring} hover:shadow-lg transition-all duration-300 text-left"
 							>
 								<!-- Role Icon -->
 								<div class="w-12 h-12 rounded-lg bg-gradient-to-br {colors.gradient} flex items-center justify-center mb-3 shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-300">
@@ -421,7 +417,7 @@
 						</button>
 
 						{#if showAllRoles}
-							<div class="mt-3 space-y-2 animate-fade-in">
+							<div class="mt-3 space-y-2">
 								{#each inactiveRoles as role}
 									<div class="flex items-center gap-3 p-3 rounded-lg bg-gov-50/60 border border-gov-100/80 opacity-60">
 										<div class="w-8 h-8 rounded-lg bg-gov-200/60 flex items-center justify-center shrink-0">
@@ -446,7 +442,7 @@
 		</div>
 
 		<!-- Bottom branding -->
-		<p class="text-center mt-6 text-sm text-white/50 transition-all duration-500 {mounted ? 'opacity-100' : 'opacity-0'}">
+		<p class="text-center mt-6 text-sm text-white/50">
 			&copy; {new Date().getFullYear()} District of Columbia &middot; All rights reserved
 		</p>
 	</div>

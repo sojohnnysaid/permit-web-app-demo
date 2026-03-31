@@ -267,7 +267,7 @@
 {#if auth.isAuthenticated}
 	<NavHeader />
 
-	<div class="min-h-screen bg-surface-alt animate-fade-in">
+	<div class="min-h-screen bg-surface-alt">
 		<main class="max-w-2xl mx-auto px-4 py-6 pb-24" id="main-content">
 			<!-- Header -->
 			<div class="mb-6">
@@ -292,7 +292,7 @@
 					<span
 						class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-permit-pending/10 text-amber-700"
 					>
-						<span class="w-2 h-2 rounded-full bg-permit-pending animate-pulse"></span>
+						<span class="w-2 h-2 rounded-full bg-permit-pending"></span>
 						{pendingCount} pending
 					</span>
 				</div>
@@ -340,7 +340,7 @@
 			<div class="space-y-4">
 				{#if displayedInspections.length === 0}
 					<div
-						class="bg-white rounded-xl shadow-card border border-gov-100 p-12 text-center animate-fade-in"
+						class="bg-white rounded-xl shadow-card border border-gov-100 p-12 text-center"
 					>
 						<div class="w-16 h-16 rounded-full bg-gov-50 flex items-center justify-center mx-auto mb-4">
 							<svg class="w-8 h-8 text-gov-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -360,13 +360,12 @@
 					{#each displayedInspections as inspection, i (inspection.id)}
 						{@const isExpanded = expandedId === inspection.id}
 						<div
-							class="bg-white rounded-xl shadow-card border transition-all duration-200 overflow-hidden animate-slide-up
+							class="bg-white rounded-xl shadow-card border transition-all duration-200 overflow-hidden
 								{inspection.stopWorkIssued
 								? 'border-permit-denied/40 ring-1 ring-permit-denied/20'
 								: inspection.noiIssued
 									? 'border-permit-pending/40 ring-1 ring-permit-pending/20'
 									: 'border-gov-100 hover:border-gov-200'}"
-							style="animation-delay: {i * 60}ms"
 						>
 							<!-- Card Header (clickable for pending) -->
 							<button
@@ -460,7 +459,7 @@
 
 							<!-- Expanded Content -->
 							{#if isExpanded && inspection.status !== 'completed'}
-								<div class="border-t border-gov-100 p-4 sm:p-5 space-y-5 animate-fade-in">
+								<div class="border-t border-gov-100 p-4 sm:p-5 space-y-5">
 									<!-- Compliance Checklist -->
 									<div>
 										<h4 class="text-sm font-display font-semibold text-gov-900 mb-3 flex items-center gap-2">
@@ -718,7 +717,7 @@
 			></button>
 
 			<!-- Modal -->
-			<div class="relative w-full max-w-md bg-white rounded-2xl shadow-modal animate-scale-in overflow-hidden">
+			<div class="relative w-full max-w-md bg-white rounded-2xl shadow-modal overflow-hidden">
 				<div class="p-6">
 					<div
 						class="w-14 h-14 rounded-full mx-auto mb-4 flex items-center justify-center
@@ -772,7 +771,7 @@
 
 	<!-- Toast -->
 	{#if toastVisible}
-		<div class="fixed bottom-6 left-4 right-4 sm:left-auto sm:right-6 sm:w-96 z-50 animate-slide-up">
+		<div class="fixed bottom-6 left-4 right-4 sm:left-auto sm:right-6 sm:w-96 z-50">
 			<div
 				class="flex items-center gap-3 px-4 py-3 rounded-xl shadow-modal border
 					{toastType === 'success'

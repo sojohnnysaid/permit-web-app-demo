@@ -157,7 +157,7 @@
 	<div class="mx-auto max-w-4xl px-6 py-8">
 		{#if isSubmitted}
 			<!-- Success State -->
-			<div class="animate-fade-in rounded-2xl border border-green-200 bg-green-50 p-10 text-center shadow-card">
+			<div class="rounded-2xl border border-green-200 bg-green-50 p-10 text-center shadow-card">
 				<div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
 					<svg class="h-8 w-8 text-permit-approved" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 						<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -170,7 +170,7 @@
 		{:else}
 			<!-- Step 1: Event Details -->
 			{#if currentStep === 1}
-				<div class="animate-slide-up space-y-6">
+				<div class="space-y-6">
 					<div class="rounded-xl border border-gov-100 bg-surface p-6 shadow-card">
 						<h2 class="mb-6 font-display text-xl font-bold text-gov-900">Event Details</h2>
 
@@ -276,7 +276,7 @@
 
 			<!-- Step 2: Location -->
 			{:else if currentStep === 2}
-				<div class="animate-slide-up space-y-6">
+				<div class="space-y-6">
 					<div class="rounded-xl border border-gov-100 bg-surface p-6 shadow-card">
 						<h2 class="mb-6 font-display text-xl font-bold text-gov-900">Event Location</h2>
 
@@ -343,7 +343,7 @@
 
 			<!-- Step 3: Review & Submit -->
 			{:else if currentStep === 3}
-				<div class="animate-slide-up space-y-6">
+				<div class="space-y-6">
 					<div class="rounded-xl border border-gov-100 bg-surface p-6 shadow-card">
 						<h2 class="mb-6 font-display text-xl font-bold text-gov-900">Review Your Application</h2>
 

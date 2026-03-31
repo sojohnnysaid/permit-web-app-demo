@@ -123,7 +123,7 @@
 
 		<main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 			<!-- Page Header -->
-			<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8 animate-fade-in">
+			<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
 				<div>
 					<h1 class="text-2xl font-display font-bold text-gov-900">Operations Dashboard</h1>
 					<p class="text-sm text-gov-400 mt-1">Real-time permit operations overview</p>
@@ -154,8 +154,7 @@
 			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
 				{#each analytics.operationsMetrics as metric, i}
 					<div
-						class="bg-white rounded-xl shadow-card border-l-4 {getMetricBorderColor(metric.color)} p-5 animate-slide-up"
-						style="animation-delay: {i * 80}ms"
+						class="bg-white rounded-xl shadow-card border-l-4 {getMetricBorderColor(metric.color)} p-5"
 					>
 						<div class="flex items-start justify-between">
 							<div>
@@ -183,7 +182,7 @@
 			</div>
 
 			<!-- 2. Review Bottleneck Panel -->
-			<div class="bg-white rounded-xl shadow-card p-6 mb-8 animate-slide-up" style="animation-delay: 320ms">
+			<div class="bg-white rounded-xl shadow-card p-6 mb-8">
 				<div class="flex items-center gap-3 mb-5">
 					<div class="w-8 h-8 rounded-lg bg-purple-100 flex items-center justify-center">
 						<svg class="w-4 h-4 text-permit-review" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -245,7 +244,7 @@
 			</div>
 
 			<!-- 3. AI Insight Panel -->
-			<div class="bg-white rounded-xl shadow-card p-6 mb-8 animate-slide-up" style="animation-delay: 400ms">
+			<div class="bg-white rounded-xl shadow-card p-6 mb-8">
 				<div class="flex items-center gap-3 mb-5">
 					<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-civic-400 to-gov-500 flex items-center justify-center">
 						<svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -277,7 +276,7 @@
 			</div>
 
 			<!-- 4. Audit Trail (Collapsible) -->
-			<div class="bg-white rounded-xl shadow-card mb-8 animate-slide-up" style="animation-delay: 480ms">
+			<div class="bg-white rounded-xl shadow-card mb-8">
 				<button
 					onclick={() => auditExpanded = !auditExpanded}
 					class="w-full flex items-center justify-between p-6 cursor-pointer group"
@@ -305,7 +304,7 @@
 				</button>
 
 				{#if auditExpanded}
-					<div class="px-6 pb-6 border-t border-gov-100 animate-slide-up">
+					<div class="px-6 pb-6 border-t border-gov-100">
 						<div class="space-y-0 mt-4">
 							{#each AUDIT_LOG as entry}
 								{@const badge = getCategoryBadge(entry.category)}
@@ -340,7 +339,7 @@
 			></button>
 
 			<!-- Modal -->
-			<div class="relative bg-white rounded-2xl shadow-modal w-full max-w-md mx-4 animate-scale-in">
+			<div class="relative bg-white rounded-2xl shadow-modal w-full max-w-md mx-4">
 				<div class="p-6">
 					<div class="flex items-center justify-between mb-6">
 						<h3 class="text-lg font-display font-bold text-gov-900">Export Report</h3>
@@ -429,7 +428,7 @@
 
 	<!-- Success Toast -->
 	{#if toastVisible}
-		<div class="fixed bottom-6 right-6 z-50 animate-slide-up">
+		<div class="fixed bottom-6 right-6 z-50">
 			<div class="flex items-center gap-3 bg-gov-900 text-white px-5 py-3 rounded-xl shadow-modal">
 				<svg class="w-5 h-5 text-permit-approved" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />

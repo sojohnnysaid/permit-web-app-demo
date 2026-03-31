@@ -165,7 +165,7 @@
 
 					{#if roleDropdownOpen}
 						<div
-							class="absolute right-0 top-full mt-2 w-48 bg-white rounded-xl shadow-modal border border-gov-100 py-1.5 animate-scale-in z-40"
+							class="absolute right-0 top-full mt-2 w-48 bg-white rounded-xl shadow-modal border border-gov-100 py-1.5 z-40"
 						>
 							<div class="px-3 py-2 border-b border-gov-100">
 								<p class="text-[10px] font-semibold text-gov-400 uppercase tracking-wider">

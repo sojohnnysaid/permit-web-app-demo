@@ -121,7 +121,7 @@
 <NavHeader />
 
 {#if auth.isAuthenticated}
-	<div class="min-h-screen bg-surface-alt pt-6 animate-fade-in">
+	<div class="min-h-screen bg-surface-alt pt-6">
 		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
 			{#if !permit}
 				<!-- Permit not found -->
@@ -163,7 +163,7 @@
 			{:else if paymentSuccess}
 				<!-- Payment success -->
 				<div class="flex items-center justify-center py-20">
-					<div class="bg-surface rounded-2xl shadow-card border border-green-200 p-12 text-center max-w-md animate-scale-in">
+					<div class="bg-surface rounded-2xl shadow-card border border-green-200 p-12 text-center max-w-md">
 						<div class="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
 							<svg class="w-10 h-10 text-permit-approved" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />

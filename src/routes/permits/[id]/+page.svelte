@@ -305,7 +305,7 @@
 {#if auth.isAuthenticated}
 	{#if !permit}
 		<!-- ─── Permit Not Found ────────────────────────────────────── -->
-		<div class="min-h-screen bg-surface-alt flex items-center justify-center animate-fade-in">
+		<div class="min-h-screen bg-surface-alt flex items-center justify-center">
 			<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-12 text-center max-w-md mx-4">
 				<div class="w-20 h-20 rounded-full bg-red-50 flex items-center justify-center mx-auto mb-6">
 					<svg class="w-10 h-10 text-permit-denied" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -331,7 +331,7 @@
 		{@const statusCfg = STATUS_CONFIG[permit.status]}
 		{@const sla = permit.slaDeadline ? slaCountdown(permit.slaDeadline) : null}
 
-		<div class="min-h-screen bg-surface-alt animate-fade-in">
+		<div class="min-h-screen bg-surface-alt">
 			<!-- ─── Header ──────────────────────────────────────────── -->
 			<header class="sticky top-0 z-30 bg-white/80 backdrop-blur-xl border-b border-gov-100 shadow-sm">
 				<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -394,7 +394,7 @@
 				</div>
 
 				<!-- ─── Status Timeline ──────────────────────────────── -->
-				<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 sm:p-8 mb-8 animate-slide-up">
+				<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 sm:p-8 mb-8">
 					<h3 class="text-sm font-semibold text-gov-400 uppercase tracking-wider mb-6">Application Progress</h3>
 
 					{#if permit.status === 'draft'}
@@ -448,7 +448,7 @@
 													<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
 												</svg>
 											{:else if stageState === 'current'}
-												<div class="w-3 h-3 rounded-full {permit.status === 'approved' ? 'bg-permit-approved' : 'bg-civic-400'} animate-pulse"></div>
+												<div class="w-3 h-3 rounded-full {permit.status === 'approved' ? 'bg-permit-approved' : 'bg-civic-400'}"></div>
 											{:else}
 												<span class="text-sm font-bold">{i + 1}</span>
 											{/if}
@@ -478,13 +478,13 @@
 					<!-- Left Column: General Info -->
 					<div class="space-y-6">
 						<!-- Description Card -->
-						<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 animate-slide-up" style="animation-delay: 100ms">
+						<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6">
 							<h3 class="text-sm font-semibold text-gov-400 uppercase tracking-wider mb-4">Description</h3>
 							<p class="text-gov-700 leading-relaxed">{permit.description}</p>
 						</div>
 
 						<!-- Applicant & Location Card -->
-						<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 animate-slide-up" style="animation-delay: 150ms">
+						<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6">
 							<h3 class="text-sm font-semibold text-gov-400 uppercase tracking-wider mb-4">Application Details</h3>
 							<div class="space-y-4">
 								<!-- Applicant -->
@@ -583,7 +583,7 @@
 					<div class="space-y-6">
 						<!-- Truck Route: Vehicle Info -->
 						{#if permit.type === 'commercial_vehicle' && permit.truckInfo}
-							<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 animate-slide-up" style="animation-delay: 200ms">
+							<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6">
 								<h3 class="text-sm font-semibold text-gov-400 uppercase tracking-wider mb-4">Vehicle Information</h3>
 								<div class="space-y-4">
 									<div class="flex items-center gap-3 mb-4">
@@ -623,7 +623,7 @@
 
 							<!-- Route Stops -->
 							{#if permit.addresses?.length}
-								<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 animate-slide-up" style="animation-delay: 250ms">
+								<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6">
 									<h3 class="text-sm font-semibold text-gov-400 uppercase tracking-wider mb-4">Route Stops</h3>
 									<div class="space-y-3">
 										{#each permit.addresses as addr, i}
@@ -655,7 +655,7 @@
 
 						<!-- Public Space: Event Info -->
 						{#if permit.type === 'public_space_rental'}
-							<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 animate-slide-up" style="animation-delay: 200ms">
+							<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6">
 								<h3 class="text-sm font-semibold text-gov-400 uppercase tracking-wider mb-4">Event Details</h3>
 								<div class="flex items-center gap-3 mb-4">
 									<div class="w-12 h-12 rounded-xl bg-civic-50 flex items-center justify-center">
@@ -677,7 +677,7 @@
 
 						<!-- Infrastructure: Damage Info -->
 						{#if permit.type === 'construction_excavation'}
-							<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 animate-slide-up" style="animation-delay: 200ms">
+							<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6">
 								<h3 class="text-sm font-semibold text-gov-400 uppercase tracking-wider mb-4">Infrastructure Report</h3>
 								<div class="flex items-center gap-3 mb-4">
 									<div class="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center">
@@ -713,7 +713,7 @@
 
 						<!-- Tree Removal: Species Info -->
 						{#if permit.type === 'special_heritage_tree'}
-							<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 animate-slide-up" style="animation-delay: 200ms">
+							<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6">
 								<h3 class="text-sm font-semibold text-gov-400 uppercase tracking-wider mb-4">Tree Details</h3>
 								<div class="flex items-center gap-3 mb-4">
 									<div class="w-12 h-12 rounded-xl bg-green-50 flex items-center justify-center">
@@ -741,7 +741,7 @@
 
 				<!-- ─── Map Section ──────────────────────────────────── -->
 				{#if permit.addresses?.length}
-					<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 mb-8 animate-slide-up" style="animation-delay: 300ms">
+					<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 mb-8">
 						<h3 class="text-sm font-semibold text-gov-400 uppercase tracking-wider mb-4">Location Map</h3>
 						<div
 							bind:this={mapContainer}
@@ -751,7 +751,7 @@
 				{/if}
 
 				<!-- ─── Actions Section ──────────────────────────────── -->
-				<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 mb-8 animate-slide-up" style="animation-delay: 350ms">
+				<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 mb-8">
 					{#if permit.status === 'draft'}
 						<div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
 							<div class="flex-1">
@@ -848,7 +848,7 @@
 				</div>
 
 				<!-- ─── Activity Feed ────────────────────────────────── -->
-				<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 animate-slide-up" style="animation-delay: 400ms">
+				<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6">
 					<h3 class="text-sm font-semibold text-gov-400 uppercase tracking-wider mb-6">Activity</h3>
 					<div class="space-y-0">
 						{#each activityFeed as activity, i}

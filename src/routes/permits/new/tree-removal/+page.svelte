@@ -153,7 +153,7 @@
 	<div class="mx-auto max-w-4xl px-6 py-8">
 		{#if isSubmitted}
 			<!-- Success State -->
-			<div class="animate-fade-in rounded-2xl border border-green-200 bg-green-50 p-10 text-center shadow-card">
+			<div class="rounded-2xl border border-green-200 bg-green-50 p-10 text-center shadow-card">
 				<div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
 					<svg class="h-8 w-8 text-permit-approved" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 						<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -173,10 +173,10 @@
 		{:else}
 			<!-- Step 1: Tree Details -->
 			{#if currentStep === 1}
-				<div class="animate-slide-up space-y-6">
+				<div class="space-y-6">
 					<!-- Emergency Banner -->
 					{#if isEmergency}
-						<div class="flex items-center gap-3 rounded-xl border-2 border-red-300 bg-red-50 p-5 animate-fade-in">
+						<div class="flex items-center gap-3 rounded-xl border-2 border-red-300 bg-red-50 p-5">
 							<div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-red-100">
 								<svg class="h-5 w-5 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 									<path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
@@ -285,7 +285,7 @@
 
 			<!-- Step 2: Location -->
 			{:else if currentStep === 2}
-				<div class="animate-slide-up space-y-6">
+				<div class="space-y-6">
 					<div class="rounded-xl border border-gov-100 bg-surface p-6 shadow-card">
 						<h2 class="mb-6 font-display text-xl font-bold text-gov-900">Tree Location</h2>
 
@@ -346,10 +346,10 @@
 
 			<!-- Step 3: Review & Submit -->
 			{:else if currentStep === 3}
-				<div class="animate-slide-up space-y-6">
+				<div class="space-y-6">
 					<!-- Emergency Banner -->
 					{#if isEmergency}
-						<div class="flex items-center gap-3 rounded-xl border-2 border-red-300 bg-red-50 p-5 animate-fade-in">
+						<div class="flex items-center gap-3 rounded-xl border-2 border-red-300 bg-red-50 p-5">
 							<div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-red-100">
 								<svg class="h-5 w-5 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 									<path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />

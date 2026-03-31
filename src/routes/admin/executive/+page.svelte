@@ -64,7 +64,7 @@
 
 		<main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 			<!-- Page Header -->
-			<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8 animate-fade-in">
+			<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
 				<div>
 					<div class="flex items-center gap-3 mb-1">
 						<a
@@ -81,7 +81,7 @@
 					<p class="text-sm text-gov-400 mt-1">Strategic overview and trend analysis</p>
 				</div>
 				<div class="flex items-center gap-2 px-4 py-2 bg-white rounded-lg border border-gov-100 shadow-sm">
-					<div class="w-2 h-2 rounded-full bg-permit-approved animate-pulse"></div>
+					<div class="w-2 h-2 rounded-full bg-permit-approved"></div>
 					<span class="text-xs font-semibold text-gov-500">Live Data</span>
 					<span class="text-xs text-gov-400">|</span>
 					<span class="text-xs text-gov-400">Q1 FY2026</span>
@@ -91,7 +91,7 @@
 			<!-- Top row: Permit Trends + Donut -->
 			<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
 				<!-- 1. Permit Trends Chart -->
-				<div class="lg:col-span-2 bg-white rounded-xl shadow-card p-6 animate-slide-up">
+				<div class="lg:col-span-2 bg-white rounded-xl shadow-card p-6">
 					<h2 class="text-lg font-display font-bold text-gov-900 mb-1">Permit Trends</h2>
 					<p class="text-xs text-gov-400 mb-5">Monthly submitted vs. approved applications</p>
 
@@ -207,7 +207,7 @@
 				</div>
 
 				<!-- 2. Approval/Denial Ratio Donut -->
-				<div class="bg-white rounded-xl shadow-card p-6 flex flex-col items-center justify-center animate-slide-up" style="animation-delay: 80ms">
+				<div class="bg-white rounded-xl shadow-card p-6 flex flex-col items-center justify-center">
 					<h2 class="text-lg font-display font-bold text-gov-900 mb-1 self-start">Approval Rate</h2>
 					<p class="text-xs text-gov-400 mb-5 self-start">Approved vs. denied decisions</p>
 
@@ -276,7 +276,7 @@
 			<!-- Middle row: Enforcement Summary -->
 			<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
 				<!-- SWOs Issued -->
-				<div class="bg-white rounded-xl shadow-card p-6 animate-slide-up" style="animation-delay: 160ms">
+				<div class="bg-white rounded-xl shadow-card p-6">
 					<div class="flex items-center gap-3 mb-3">
 						<div class="w-10 h-10 rounded-lg bg-red-100 flex items-center justify-center">
 							<svg class="w-5 h-5 text-permit-denied" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -290,7 +290,7 @@
 				</div>
 
 				<!-- NOIs Issued -->
-				<div class="bg-white rounded-xl shadow-card p-6 animate-slide-up" style="animation-delay: 240ms">
+				<div class="bg-white rounded-xl shadow-card p-6">
 					<div class="flex items-center gap-3 mb-3">
 						<div class="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center">
 							<svg class="w-5 h-5 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -304,7 +304,7 @@
 				</div>
 
 				<!-- Compliance Rate -->
-				<div class="bg-white rounded-xl shadow-card p-6 animate-slide-up" style="animation-delay: 320ms">
+				<div class="bg-white rounded-xl shadow-card p-6">
 					<div class="flex items-center gap-3 mb-3">
 						<div class="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center">
 							<svg class="w-5 h-5 text-permit-approved" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -321,7 +321,7 @@
 			<!-- Bottom row: Ward Permit Density + AI Pattern Analysis -->
 			<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
 				<!-- 4. Ward Permit Density -->
-				<div class="lg:col-span-2 bg-white rounded-xl shadow-card p-6 animate-slide-up" style="animation-delay: 400ms">
+				<div class="lg:col-span-2 bg-white rounded-xl shadow-card p-6">
 					<h2 class="text-lg font-display font-bold text-gov-900 mb-1">Ward Permit Density</h2>
 					<p class="text-xs text-gov-400 mb-5">Permit volume and SLA compliance by ward</p>
 
@@ -383,7 +383,7 @@
 				</div>
 
 				<!-- 5. AI Pattern Analysis -->
-				<div class="bg-white rounded-xl shadow-card p-6 animate-slide-up" style="animation-delay: 480ms">
+				<div class="bg-white rounded-xl shadow-card p-6">
 					<div class="flex items-center gap-3 mb-5">
 						<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-civic-400 to-gov-500 flex items-center justify-center">
 							<svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -429,7 +429,7 @@
 			</div>
 
 			<!-- Back link -->
-			<div class="text-center pb-8 animate-fade-in" style="animation-delay: 560ms">
+			<div class="text-center pb-8">
 				<a
 					href="/admin"
 					class="inline-flex items-center gap-2 text-sm font-semibold text-gov-400 hover:text-gov-700 transition-colors"

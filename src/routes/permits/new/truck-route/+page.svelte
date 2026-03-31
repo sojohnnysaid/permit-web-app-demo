@@ -377,9 +377,9 @@
 
 	<!-- Success Overlay -->
 	{#if isSubmitted}
-	<div class="fixed inset-0 z-50 flex items-center justify-center bg-gov-900/60 backdrop-blur-sm animate-fade-in">
-		<div class="bg-white rounded-2xl shadow-modal p-10 text-center max-w-md mx-4 animate-scale-in">
-			<div class="w-20 h-20 rounded-full bg-gradient-to-br from-permit-approved to-emerald-400 flex items-center justify-center mx-auto mb-6 animate-scale-in" style="animation-delay: 200ms">
+	<div class="fixed inset-0 z-50 flex items-center justify-center bg-gov-900/60 backdrop-blur-sm">
+		<div class="bg-white rounded-2xl shadow-modal p-10 text-center max-w-md mx-4">
+			<div class="w-20 h-20 rounded-full bg-gradient-to-br from-permit-approved to-emerald-400 flex items-center justify-center mx-auto mb-6">
 				<svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
 			</div>
 			<h2 class="text-2xl font-display font-bold text-gov-900 mb-2">Permit Submitted!</h2>
@@ -396,7 +396,7 @@
 
 	<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 		<!-- Step Indicator -->
-		<div class="mb-8 animate-slide-up">
+		<div class="mb-8">
 			<div class="flex items-center justify-between max-w-2xl mx-auto">
 				{#each STEPS as step, i}
 					{@const isActive = currentStep === step.num}
@@ -437,7 +437,7 @@
 			<!-- STEP 1: Vehicle Info -->
 			<!-- ═══════════════════════════════════════════════════════════ -->
 			{#if currentStep === 1}
-			<div class="animate-slide-in-right">
+			<div class="">
 				<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 					<!-- Main Form -->
 					<div class="lg:col-span-2 space-y-6">
@@ -587,7 +587,7 @@
 											<circle cx="100" cy="52" r="8" opacity="0.5"/>
 										</svg>
 										{#if isOversize}
-											<div class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-permit-denied flex items-center justify-center animate-scale-in">
+											<div class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-permit-denied flex items-center justify-center">
 												<svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
 											</div>
 										{/if}
@@ -598,7 +598,7 @@
 								<div class="text-center">
 									{#if isOversize}
 										<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-red-100 text-permit-denied text-sm font-bold">
-											<span class="w-2 h-2 rounded-full bg-permit-denied animate-pulse"></span>
+											<span class="w-2 h-2 rounded-full bg-permit-denied"></span>
 											OVERSIZE / OVERWEIGHT
 										</span>
 									{:else}
@@ -664,7 +664,7 @@
 			<!-- STEP 2: Route Builder -->
 			<!-- ═══════════════════════════════════════════════════════════ -->
 			{#if currentStep === 2}
-			<div class="animate-slide-in-right">
+			<div class="">
 				<div class="grid grid-cols-1 lg:grid-cols-5 gap-6" style="min-height: 600px;">
 					<!-- Left: Stop List -->
 					<div class="lg:col-span-2">
@@ -686,7 +686,7 @@
 							<!-- Stops -->
 							<div class="flex-1 overflow-y-auto space-y-3 pr-1">
 								{#each stops as stop, idx}
-									<div class="group relative bg-surface-alt rounded-xl border border-gov-100 p-4 transition-all hover:border-gov-200 hover:shadow-sm animate-fade-in">
+									<div class="group relative bg-surface-alt rounded-xl border border-gov-100 p-4 transition-all hover:border-gov-200 hover:shadow-sm">
 										<!-- Stop number badge -->
 										<div class="flex items-start gap-3">
 											<div class="flex flex-col items-center gap-1">
@@ -794,7 +794,7 @@
 			<!-- STEP 3: Street Restrictions -->
 			<!-- ═══════════════════════════════════════════════════════════ -->
 			{#if currentStep === 3}
-			<div class="animate-slide-in-right">
+			<div class="">
 				<div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
 					<!-- Left: Restrictions Table -->
 					<div class="lg:col-span-3">
@@ -824,8 +824,7 @@
 									{@const statusColor = restriction.status === 'blocked' ? 'permit-denied' : restriction.status === 'conditional' ? 'amber-500' : 'permit-approved'}
 									{@const statusBg = restriction.status === 'blocked' ? 'bg-red-50 border-red-200' : restriction.status === 'conditional' ? 'bg-amber-50 border-amber-200' : 'bg-green-50 border-green-200'}
 									<div
-										class="rounded-xl border p-4 transition-all hover:shadow-sm animate-slide-up {statusBg}"
-										style="animation-delay: {i * 50}ms"
+										class="rounded-xl border p-4 transition-all hover:shadow-sm {statusBg}"
 									>
 										<div class="flex items-start gap-3">
 											<!-- Status indicator -->
@@ -869,7 +868,7 @@
 					<div class="lg:col-span-2 space-y-6">
 						<!-- Route Alert -->
 						{#if blockedCount > 0}
-						<div class="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl border border-red-200 p-5 animate-scale-in">
+						<div class="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl border border-red-200 p-5">
 							<div class="flex gap-3">
 								<div class="w-10 h-10 rounded-xl bg-permit-denied flex items-center justify-center flex-shrink-0">
 									<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
@@ -922,12 +921,12 @@
 			<!-- STEP 4: Review & Submit -->
 			<!-- ═══════════════════════════════════════════════════════════ -->
 			{#if currentStep === 4}
-			<div class="animate-slide-in-right">
+			<div class="">
 				<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 					<!-- Main Review -->
 					<div class="lg:col-span-2 space-y-6">
 						<!-- Vehicle Summary -->
-						<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 animate-slide-up">
+						<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6">
 							<div class="flex items-center gap-3 mb-5">
 								<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-gov-600 to-gov-500 flex items-center justify-center">
 									<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"/></svg>
@@ -969,7 +968,7 @@
 						</div>
 
 						<!-- Route Summary -->
-						<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 animate-slide-up" style="animation-delay: 100ms">
+						<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6">
 							<div class="flex items-center gap-3 mb-5">
 								<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-civic-500 to-civic-400 flex items-center justify-center">
 									<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
@@ -1000,7 +999,7 @@
 
 						<!-- Restrictions Summary -->
 						{#if blockedCount > 0 || conditionalCount > 0}
-						<div class="bg-gradient-to-r from-amber-50 to-red-50 rounded-2xl border border-amber-200 p-6 animate-slide-up" style="animation-delay: 200ms">
+						<div class="bg-gradient-to-r from-amber-50 to-red-50 rounded-2xl border border-amber-200 p-6">
 							<div class="flex items-start gap-3">
 								<div class="w-10 h-10 rounded-xl bg-amber-500 flex items-center justify-center flex-shrink-0">
 									<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
@@ -1017,7 +1016,7 @@
 					<!-- Right: Fee & Submit -->
 					<div class="space-y-6">
 						<!-- Fee Card -->
-						<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 animate-slide-up" style="animation-delay: 150ms">
+						<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6">
 							<h3 class="text-lg font-display font-bold text-gov-900 mb-4">Fee Summary</h3>
 
 							<div class="space-y-3 mb-4">

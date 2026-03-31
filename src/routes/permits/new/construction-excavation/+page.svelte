@@ -496,9 +496,9 @@
 
 	<!-- Success Overlay -->
 	{#if isSubmitted}
-	<div class="fixed inset-0 z-50 flex items-center justify-center bg-gov-900/60 backdrop-blur-sm animate-fade-in">
-		<div class="bg-white rounded-2xl shadow-modal p-10 text-center max-w-md mx-4 animate-scale-in">
-			<div class="w-20 h-20 rounded-full bg-gradient-to-br from-permit-approved to-emerald-400 flex items-center justify-center mx-auto mb-6 animate-scale-in" style="animation-delay: 200ms">
+	<div class="fixed inset-0 z-50 flex items-center justify-center bg-gov-900/60 backdrop-blur-sm">
+		<div class="bg-white rounded-2xl shadow-modal p-10 text-center max-w-md mx-4">
+			<div class="w-20 h-20 rounded-full bg-gradient-to-br from-permit-approved to-emerald-400 flex items-center justify-center mx-auto mb-6">
 				<svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
 			</div>
 			<h2 class="text-2xl font-display font-bold text-gov-900 mb-2">Permit Application Submitted!</h2>
@@ -520,7 +520,7 @@
 
 	<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 		<!-- Step Indicator -->
-		<div class="mb-8 animate-slide-up">
+		<div class="mb-8">
 			<div class="flex items-center justify-between max-w-3xl mx-auto">
 				{#each STEPS as step, i}
 					{@const isActive = currentStep === step.num}
@@ -560,7 +560,7 @@
 			<!-- STEP 1: Project Details -->
 			<!-- ═══════════════════════════════════════════════════════════ -->
 			{#if currentStep === 1}
-			<div class="animate-slide-in-right">
+			<div class="">
 				<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 					<!-- Main Form -->
 					<div class="lg:col-span-2 space-y-6">
@@ -771,7 +771,7 @@
 			<!-- STEP 2: Location & GIS -->
 			<!-- ═══════════════════════════════════════════════════════════ -->
 			{#if currentStep === 2}
-			<div class="animate-slide-in-right">
+			<div class="">
 				<div class="grid grid-cols-1 lg:grid-cols-5 gap-6" style="min-height: 600px;">
 					<!-- Left: Address & Details -->
 					<div class="lg:col-span-2">
@@ -801,7 +801,7 @@
 
 								<!-- Autocomplete Dropdown -->
 								{#if showAddressSuggestions && filteredAddresses.length > 0}
-									<div class="absolute z-20 w-full mt-1 bg-white rounded-xl shadow-modal border border-gov-100 py-1 max-h-60 overflow-y-auto animate-scale-in">
+									<div class="absolute z-20 w-full mt-1 bg-white rounded-xl shadow-modal border border-gov-100 py-1 max-h-60 overflow-y-auto">
 										{#each filteredAddresses as addr}
 											<button
 												onmousedown={() => selectAddress(addr)}
@@ -820,9 +820,9 @@
 
 							<!-- Ward Auto-Detection -->
 							{#if detectedWard}
-								<div class="mb-5 bg-gradient-to-r from-civic-50 to-surface-alt rounded-xl border border-civic-200 p-4 animate-scale-in">
+								<div class="mb-5 bg-gradient-to-r from-civic-50 to-surface-alt rounded-xl border border-civic-200 p-4">
 									<div class="flex items-center gap-2 mb-2">
-										<span class="w-2 h-2 rounded-full bg-civic-500 animate-pulse"></span>
+										<span class="w-2 h-2 rounded-full bg-civic-500"></span>
 										<span class="text-xs font-bold text-civic-600 uppercase tracking-wider">Auto-Detected</span>
 									</div>
 									<div class="flex items-center gap-4">
@@ -876,7 +876,7 @@
 								</div>
 								<div class="space-y-2">
 									{#each NEARBY_PROJECTS as project, i}
-										<div class="flex items-center justify-between py-2 px-3 bg-surface-alt rounded-lg animate-slide-up" style="animation-delay: {i * 80}ms">
+										<div class="flex items-center justify-between py-2 px-3 bg-surface-alt rounded-lg" style="animation-delay: {i * 80}ms">
 											<div class="flex items-center gap-2">
 												<span class="w-2 h-2 rounded-full {project.status === 'Active' ? 'bg-permit-approved' : project.status === 'Planned' ? 'bg-permit-pending' : 'bg-gov-300'}"></span>
 												<div>
@@ -918,7 +918,7 @@
 			<!-- STEP 3: Site Plan & Documents -->
 			<!-- ═══════════════════════════════════════════════════════════ -->
 			{#if currentStep === 3}
-			<div class="animate-slide-in-right">
+			<div class="">
 				<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 					<!-- Upload Area -->
 					<div class="lg:col-span-2 space-y-6">
@@ -976,7 +976,7 @@
 									<h3 class="text-sm font-display font-bold text-gov-700 mb-3">Uploaded Documents ({uploadedDocs.length})</h3>
 									<div class="space-y-2">
 										{#each uploadedDocs as doc, i}
-											<div class="flex items-center gap-3 bg-surface-alt rounded-xl px-4 py-3 border border-gov-100 group hover:border-gov-200 transition-all animate-slide-up" style="animation-delay: {i * 50}ms">
+											<div class="flex items-center gap-3 bg-surface-alt rounded-xl px-4 py-3 border border-gov-100 group hover:border-gov-200 transition-all" style="animation-delay: {i * 50}ms">
 												<!-- File Icon -->
 												<div class="w-10 h-10 rounded-lg bg-gov-100 flex items-center justify-center flex-shrink-0">
 													<svg class="w-5 h-5 text-gov-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
@@ -1008,7 +1008,7 @@
 							<h3 class="text-sm font-display font-bold text-gov-700 mb-4">Required Documents</h3>
 							<div class="space-y-3">
 								{#each requiredDocsStatus as doc, i}
-									<div class="flex items-center gap-3 animate-slide-up" style="animation-delay: {i * 60}ms">
+									<div class="flex items-center gap-3" style="animation-delay: {i * 60}ms">
 										<div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0
 											{doc.uploaded ? 'bg-green-100' : 'bg-gov-100'}">
 											{#if doc.uploaded}
@@ -1074,7 +1074,7 @@
 			<!-- STEP 4: Fee Estimate -->
 			<!-- ═══════════════════════════════════════════════════════════ -->
 			{#if currentStep === 4}
-			<div class="animate-slide-in-right">
+			<div class="">
 				<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 					<!-- Fee Breakdown -->
 					<div class="lg:col-span-2">
@@ -1092,7 +1092,7 @@
 							<!-- Fee Lines -->
 							<div class="space-y-4">
 								<!-- Base Permit Fee -->
-								<div class="flex items-center justify-between py-4 px-5 bg-surface-alt rounded-xl border border-gov-100 animate-slide-up" style="animation-delay: 0ms">
+								<div class="flex items-center justify-between py-4 px-5 bg-surface-alt rounded-xl border border-gov-100">
 									<div class="flex items-center gap-3">
 										<div class="w-8 h-8 rounded-lg bg-gov-100 flex items-center justify-center">
 											<svg class="w-4 h-4 text-gov-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
@@ -1106,7 +1106,7 @@
 								</div>
 
 								<!-- Plan Review Fee -->
-								<div class="flex items-center justify-between py-4 px-5 bg-surface-alt rounded-xl border border-gov-100 animate-slide-up" style="animation-delay: 60ms">
+								<div class="flex items-center justify-between py-4 px-5 bg-surface-alt rounded-xl border border-gov-100">
 									<div class="flex items-center gap-3">
 										<div class="w-8 h-8 rounded-lg bg-gov-100 flex items-center justify-center">
 											<svg class="w-4 h-4 text-gov-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
@@ -1120,7 +1120,7 @@
 								</div>
 
 								<!-- Inspection Fee -->
-								<div class="flex items-center justify-between py-4 px-5 bg-surface-alt rounded-xl border border-gov-100 animate-slide-up" style="animation-delay: 120ms">
+								<div class="flex items-center justify-between py-4 px-5 bg-surface-alt rounded-xl border border-gov-100">
 									<div class="flex items-center gap-3">
 										<div class="w-8 h-8 rounded-lg bg-gov-100 flex items-center justify-center">
 											<svg class="w-4 h-4 text-gov-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
@@ -1134,7 +1134,7 @@
 								</div>
 
 								<!-- Technology Fee -->
-								<div class="flex items-center justify-between py-4 px-5 bg-surface-alt rounded-xl border border-gov-100 animate-slide-up" style="animation-delay: 180ms">
+								<div class="flex items-center justify-between py-4 px-5 bg-surface-alt rounded-xl border border-gov-100">
 									<div class="flex items-center gap-3">
 										<div class="w-8 h-8 rounded-lg bg-gov-100 flex items-center justify-center">
 											<svg class="w-4 h-4 text-gov-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
@@ -1149,14 +1149,14 @@
 
 								<!-- Subtotal Divider -->
 								<div class="border-t-2 border-gov-200 pt-4 mt-4">
-									<div class="flex items-center justify-between px-5 animate-slide-up" style="animation-delay: 240ms">
+									<div class="flex items-center justify-between px-5">
 										<span class="text-sm font-bold text-gov-700">Subtotal (Fees)</span>
 										<span class="text-xl font-mono font-bold text-gov-900">${subtotal.toFixed(2)}</span>
 									</div>
 								</div>
 
 								<!-- Refundable Deposit -->
-								<div class="flex items-center justify-between py-4 px-5 bg-amber-50 rounded-xl border border-amber-200 animate-slide-up" style="animation-delay: 300ms">
+								<div class="flex items-center justify-between py-4 px-5 bg-amber-50 rounded-xl border border-amber-200">
 									<div class="flex items-center gap-3">
 										<div class="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center">
 											<svg class="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z"/></svg>
@@ -1170,7 +1170,7 @@
 								</div>
 
 								<!-- Total -->
-								<div class="bg-gradient-to-r from-gov-700 to-gov-600 rounded-2xl p-5 text-white animate-slide-up" style="animation-delay: 360ms">
+								<div class="bg-gradient-to-r from-gov-700 to-gov-600 rounded-2xl p-5 text-white">
 									<div class="flex items-center justify-between">
 										<div>
 											<p class="text-sm font-medium text-gov-200">Total Due at Issuance</p>
@@ -1186,7 +1186,7 @@
 					<!-- Side Panel -->
 					<div class="space-y-6">
 						<!-- Payment Info -->
-						<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 animate-slide-up" style="animation-delay: 100ms">
+						<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6">
 							<h3 class="text-sm font-display font-bold text-gov-700 mb-4">Payment Information</h3>
 							<div class="space-y-3">
 								<div class="flex items-center gap-3 text-sm">
@@ -1211,7 +1211,7 @@
 						</div>
 
 						<!-- Deposit Details -->
-						<div class="bg-gradient-to-br from-amber-50 to-amber-100 rounded-2xl border border-amber-200 p-5 animate-slide-up" style="animation-delay: 200ms">
+						<div class="bg-gradient-to-br from-amber-50 to-amber-100 rounded-2xl border border-amber-200 p-5">
 							<div class="flex gap-3">
 								<div class="w-8 h-8 rounded-lg bg-amber-500 flex items-center justify-center flex-shrink-0">
 									<svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
@@ -1224,7 +1224,7 @@
 						</div>
 
 						<!-- Disclaimer -->
-						<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-5 animate-slide-up" style="animation-delay: 300ms">
+						<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-5">
 							<div class="flex items-start gap-3">
 								<svg class="w-5 h-5 text-gov-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
 								<div>
@@ -1242,12 +1242,12 @@
 			<!-- STEP 5: Review & Submit -->
 			<!-- ═══════════════════════════════════════════════════════════ -->
 			{#if currentStep === 5}
-			<div class="animate-slide-in-right">
+			<div class="">
 				<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 					<!-- Main Review -->
 					<div class="lg:col-span-2 space-y-6">
 						<!-- Project Details Summary -->
-						<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 animate-slide-up">
+						<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6">
 							<div class="flex items-center gap-3 mb-5">
 								<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-permit-pending to-amber-400 flex items-center justify-center">
 									<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
@@ -1302,7 +1302,7 @@
 						</div>
 
 						<!-- Location Summary -->
-						<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 animate-slide-up" style="animation-delay: 100ms">
+						<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6">
 							<div class="flex items-center gap-3 mb-5">
 								<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-civic-500 to-civic-400 flex items-center justify-center">
 									<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
@@ -1336,7 +1336,7 @@
 						</div>
 
 						<!-- Documents Summary -->
-						<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 animate-slide-up" style="animation-delay: 200ms">
+						<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6">
 							<div class="flex items-center gap-3 mb-5">
 								<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-gov-600 to-gov-500 flex items-center justify-center">
 									<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
@@ -1385,7 +1385,7 @@
 					<!-- Right: AI Check + Fee + Submit -->
 					<div class="space-y-6">
 						<!-- AI Pre-Submission Check -->
-						<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 animate-slide-up" style="animation-delay: 100ms">
+						<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6">
 							<div class="flex items-center gap-3 mb-5">
 								<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-permit-review to-purple-400 flex items-center justify-center">
 									<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
@@ -1418,7 +1418,7 @@
 							<!-- Check Items -->
 							<div class="space-y-2.5">
 								{#each preSubmissionChecks as check, i}
-									<div class="flex items-start gap-2.5 py-2 animate-slide-up" style="animation-delay: {150 + i * 40}ms">
+									<div class="flex items-start gap-2.5 py-2" style="animation-delay: {150 + i * 40}ms">
 										<div class="mt-0.5 flex-shrink-0">
 											{#if check.status === 'pass'}
 												<div class="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center">
@@ -1477,7 +1477,7 @@
 						</div>
 
 						<!-- Fee Summary (Compact) -->
-						<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 animate-slide-up" style="animation-delay: 200ms">
+						<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6">
 							<h3 class="text-sm font-display font-bold text-gov-700 mb-4">Fee Summary</h3>
 							<div class="space-y-2.5">
 								<div class="flex items-center justify-between text-sm">
@@ -1508,7 +1508,7 @@
 						</div>
 
 						<!-- Submit Button -->
-						<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 animate-slide-up" style="animation-delay: 300ms">
+						<div class="bg-white rounded-2xl shadow-card border border-gov-100 p-6">
 							<button
 								onclick={handleSubmit}
 								disabled={isSubmitting}

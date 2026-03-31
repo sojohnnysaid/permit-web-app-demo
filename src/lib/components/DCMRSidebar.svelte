@@ -131,7 +131,7 @@
 <!-- Expanded Sidebar -->
 {#if isExpanded}
 	<div
-		class="fixed right-0 top-0 bottom-0 w-[320px] z-40 bg-surface shadow-modal border-l border-gov-200 flex flex-col animate-slide-in-right"
+		class="fixed right-0 top-0 bottom-0 w-[320px] z-40 bg-surface shadow-modal border-l border-gov-200 flex flex-col"
 	>
 		<!-- Header -->
 		<div class="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-gov-700 to-gov-600 text-white shrink-0">
@@ -166,7 +166,7 @@
 		<div class="flex-1 overflow-y-auto px-4 py-4 space-y-3">
 			{#each relevantTitles as citation (citation.title)}
 				<div
-					class="bg-white rounded-lg shadow-card border border-gov-100 border-l-4 {accentColors[citation.title]} overflow-hidden animate-fade-in"
+					class="bg-white rounded-lg shadow-card border border-gov-100 border-l-4 {accentColors[citation.title]} overflow-hidden"
 				>
 					<div class="px-3.5 py-3">
 						<!-- Title Badge -->

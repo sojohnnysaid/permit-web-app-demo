@@ -412,7 +412,7 @@
 
 	{#if !permit}
 		<!-- ─── Permit Not Found ────────────────────────────────────── -->
-		<div class="min-h-screen bg-surface-alt flex items-center justify-center animate-fade-in">
+		<div class="min-h-screen bg-surface-alt flex items-center justify-center">
 			<div
 				class="bg-white rounded-2xl shadow-card border border-gov-100 p-12 text-center max-w-md mx-4"
 			>
@@ -454,7 +454,7 @@
 	{:else}
 		{@const sla = permit.slaDeadline ? slaCountdown(permit.slaDeadline) : null}
 
-		<div class="min-h-screen bg-surface-alt animate-fade-in">
+		<div class="min-h-screen bg-surface-alt">
 			<!-- ─── Sticky Review Header ──────────────────────────────── -->
 			<header class="sticky top-0 z-30 bg-white/80 backdrop-blur-xl border-b border-gov-100 shadow-sm">
 				<div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -546,7 +546,7 @@
 					<div class="w-full lg:w-[60%] space-y-6">
 						<!-- 1. Permit Header Card ────────────────────────── -->
 						<div
-							class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 animate-slide-up"
+							class="bg-white rounded-2xl shadow-card border border-gov-100 p-6"
 						>
 							<div class="flex items-start gap-4">
 								<div
@@ -636,8 +636,7 @@
 
 						<!-- 2. AI-Generated Application Brief ────────────── -->
 						<div
-							class="bg-gradient-to-br from-civic-50 via-gov-50 to-purple-50 rounded-2xl shadow-card border border-civic-200 p-6 animate-slide-up"
-							style="animation-delay: 50ms"
+							class="bg-gradient-to-br from-civic-50 via-gov-50 to-purple-50 rounded-2xl shadow-card border border-civic-200 p-6"
 						>
 							<div class="flex items-start gap-3">
 								<div
@@ -668,8 +667,7 @@
 
 						<!-- 3. Application Details ───────────────────────── -->
 						<div
-							class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 animate-slide-up"
-							style="animation-delay: 100ms"
+							class="bg-white rounded-2xl shadow-card border border-gov-100 p-6"
 						>
 							<h3 class="text-sm font-semibold text-gov-400 uppercase tracking-wider mb-4">
 								Application Details
@@ -726,8 +724,7 @@
 
 						<!-- 4. Documents Section ─────────────────────────── -->
 						<div
-							class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 animate-slide-up"
-							style="animation-delay: 150ms"
+							class="bg-white rounded-2xl shadow-card border border-gov-100 p-6"
 						>
 							<h3 class="text-sm font-semibold text-gov-400 uppercase tracking-wider mb-4">
 								Documents
@@ -788,8 +785,7 @@
 
 						<!-- 5. Review Comments History ────────────────────── -->
 						<div
-							class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 animate-slide-up"
-							style="animation-delay: 200ms"
+							class="bg-white rounded-2xl shadow-card border border-gov-100 p-6"
 						>
 							<h3 class="text-sm font-semibold text-gov-400 uppercase tracking-wider mb-4">
 								Review Comments
@@ -856,8 +852,7 @@
 
 						<!-- 6. Reviewer Action Panel ──────────────────────── -->
 						<div
-							class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 animate-slide-up"
-							style="animation-delay: 250ms"
+							class="bg-white rounded-2xl shadow-card border border-gov-100 p-6"
 						>
 							<h3 class="text-sm font-semibold text-gov-400 uppercase tracking-wider mb-4">
 								Reviewer Action
@@ -991,8 +986,7 @@
 					<div class="w-full lg:w-[40%] space-y-6">
 						<!-- Map ──────────────────────────────────────────── -->
 						<div
-							class="bg-white rounded-2xl shadow-card border border-gov-100 overflow-hidden animate-slide-up"
-							style="animation-delay: 100ms"
+							class="bg-white rounded-2xl shadow-card border border-gov-100 overflow-hidden"
 						>
 							<div class="p-4 border-b border-gov-100">
 								<div class="flex items-center justify-between">
@@ -1027,8 +1021,7 @@
 
 						<!-- Asset Management ─────────────────────────────── -->
 						<div
-							class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 animate-slide-up"
-							style="animation-delay: 150ms"
+							class="bg-white rounded-2xl shadow-card border border-gov-100 p-6"
 						>
 							<h3 class="text-sm font-semibold text-gov-400 uppercase tracking-wider mb-4">
 								Asset Management
@@ -1083,8 +1076,7 @@
 
 						<!-- Conflict Alerts ───────────────────────────────── -->
 						<div
-							class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 animate-slide-up"
-							style="animation-delay: 200ms"
+							class="bg-white rounded-2xl shadow-card border border-gov-100 p-6"
 						>
 							<div class="flex items-center justify-between mb-4">
 								<h3 class="text-sm font-semibold text-gov-400 uppercase tracking-wider">
@@ -1183,8 +1175,7 @@
 						<!-- Nearby Permits Summary ────────────────────────── -->
 						{#if nearbyPermits.length > 0}
 							<div
-								class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 animate-slide-up"
-								style="animation-delay: 250ms"
+								class="bg-white rounded-2xl shadow-card border border-gov-100 p-6"
 							>
 								<h3 class="text-sm font-semibold text-gov-400 uppercase tracking-wider mb-4">
 									Nearby Active Permits
@@ -1227,8 +1218,7 @@
 						<!-- Nearby DDOT Projects Summary ──────────────────── -->
 						{#if nearbyProjects.length > 0}
 							<div
-								class="bg-white rounded-2xl shadow-card border border-gov-100 p-6 animate-slide-up"
-								style="animation-delay: 300ms"
+								class="bg-white rounded-2xl shadow-card border border-gov-100 p-6"
 							>
 								<h3 class="text-sm font-semibold text-gov-400 uppercase tracking-wider mb-4">
 									DDOT / Utility Projects

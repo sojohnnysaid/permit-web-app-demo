@@ -179,7 +179,7 @@
 </svelte:head>
 
 {#if auth.isAuthenticated && auth.role !== 'applicant'}
-	<div class="min-h-screen bg-surface-alt animate-fade-in">
+	<div class="min-h-screen bg-surface-alt">
 		<NavHeader />
 
 		<main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -197,7 +197,7 @@
 
 			<!-- AI Routing Recommendation Panel -->
 			<div
-				class="bg-gradient-to-r from-civic-50 to-gov-50 rounded-xl border border-civic-200 p-4 mb-6 animate-slide-up flex items-start gap-3"
+				class="bg-gradient-to-r from-civic-50 to-gov-50 rounded-xl border border-civic-200 p-4 mb-6 flex items-start gap-3"
 			>
 				<div
 					class="w-9 h-9 rounded-lg bg-gradient-to-br from-civic-500 to-gov-500 flex items-center justify-center shrink-0"
@@ -223,7 +223,7 @@
 			<div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8">
 				<!-- Total in Queue -->
 				<div
-					class="bg-white rounded-xl p-4 shadow-card hover:shadow-card-hover transition-shadow duration-200 border border-gov-100 animate-slide-up"
+					class="bg-white rounded-xl p-4 shadow-card hover:shadow-card-hover transition-shadow duration-200 border border-gov-100"
 				>
 					<div class="flex items-center gap-3">
 						<div class="w-10 h-10 rounded-lg bg-gov-50 flex items-center justify-center">
@@ -250,8 +250,7 @@
 
 				<!-- Overdue -->
 				<div
-					class="bg-white rounded-xl p-4 shadow-card hover:shadow-card-hover transition-shadow duration-200 border border-red-100 animate-slide-up"
-					style="animation-delay: 50ms"
+					class="bg-white rounded-xl p-4 shadow-card hover:shadow-card-hover transition-shadow duration-200 border border-red-100"
 				>
 					<div class="flex items-center gap-3">
 						<div class="w-10 h-10 rounded-lg bg-red-50 flex items-center justify-center">
@@ -278,8 +277,7 @@
 
 				<!-- Average Review Time -->
 				<div
-					class="bg-white rounded-xl p-4 shadow-card hover:shadow-card-hover transition-shadow duration-200 border border-purple-100 animate-slide-up"
-					style="animation-delay: 100ms"
+					class="bg-white rounded-xl p-4 shadow-card hover:shadow-card-hover transition-shadow duration-200 border border-purple-100"
 				>
 					<div class="flex items-center gap-3">
 						<div class="w-10 h-10 rounded-lg bg-purple-50 flex items-center justify-center">
@@ -307,8 +305,7 @@
 
 			<!-- Search & Filter Bar -->
 			<div
-				class="bg-white rounded-xl shadow-card border border-gov-100 p-4 mb-6 animate-slide-up"
-				style="animation-delay: 150ms"
+				class="bg-white rounded-xl shadow-card border border-gov-100 p-4 mb-6"
 			>
 				<div class="flex flex-col sm:flex-row gap-4">
 					<!-- Search -->
@@ -376,7 +373,7 @@
 			<div class="space-y-4">
 				{#if filteredQueue.length === 0}
 					<div
-						class="bg-white rounded-xl shadow-card border border-gov-100 p-12 text-center animate-fade-in"
+						class="bg-white rounded-xl shadow-card border border-gov-100 p-12 text-center"
 					>
 						<div
 							class="w-16 h-16 rounded-full bg-gov-50 flex items-center justify-center mx-auto mb-4"
@@ -418,8 +415,7 @@
 						{@const sla = permit.slaDeadline ? slaCountdown(permit.slaDeadline) : null}
 						{@const aiSummary = reviewerStore.getAISummary(permit.id)}
 						<div
-							class="group bg-white rounded-xl shadow-card hover:shadow-card-hover border border-gov-100 hover:border-gov-200 transition-all duration-200 overflow-hidden animate-slide-up"
-							style="animation-delay: {200 + i * 60}ms"
+							class="group bg-white rounded-xl shadow-card hover:shadow-card-hover border border-gov-100 hover:border-gov-200 transition-all duration-200 overflow-hidden"
 						>
 							<div class="p-5 sm:p-6">
 								<div class="flex flex-col sm:flex-row sm:items-start gap-4">

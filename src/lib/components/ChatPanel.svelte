@@ -46,7 +46,7 @@
 	<!-- Chat Panel -->
 	{#if chat.isOpen}
 		<div
-			class="w-[400px] h-[500px] bg-surface rounded-2xl shadow-modal flex flex-col overflow-hidden animate-scale-in"
+			class="w-[400px] h-[500px] bg-surface rounded-2xl shadow-modal flex flex-col overflow-hidden"
 			style="transform-origin: bottom right;"
 		>
 			<!-- Header -->
@@ -66,7 +66,7 @@
 					<span class="font-display font-semibold text-base">TOPS AI Assistant</span>
 				</div>
 				<div class="ml-auto">
-					<div class="w-2 h-2 rounded-full bg-civic-400 animate-pulse"></div>
+					<div class="w-2 h-2 rounded-full bg-civic-400"></div>
 				</div>
 			</div>
 
@@ -75,7 +75,7 @@
 				{#each chat.messages as message, i}
 					{#if message.role === 'assistant'}
 						<!-- Assistant message -->
-						<div class="flex gap-2 max-w-[90%] animate-fade-in">
+						<div class="flex gap-2 max-w-[90%]">
 							<div
 								class="w-7 h-7 rounded-full bg-gradient-to-br from-gov-600 to-civic-500 flex items-center justify-center shrink-0 mt-0.5"
 							>
@@ -91,7 +91,7 @@
 						</div>
 						<!-- Quick actions after first assistant message -->
 						{#if i === 0 && chat.messages.length === 1}
-							<div class="flex flex-wrap gap-2 pl-9 animate-fade-in">
+							<div class="flex flex-wrap gap-2 pl-9">
 								<button
 									onclick={() => handleQuickAction('Find a permit')}
 									class="px-3 py-1.5 text-xs font-medium rounded-full border border-gov-200 bg-white text-gov-600 hover:bg-gov-50 hover:border-gov-300 transition-colors cursor-pointer"
@@ -114,7 +114,7 @@
 						{/if}
 					{:else}
 						<!-- User message -->
-						<div class="flex justify-end animate-fade-in">
+						<div class="flex justify-end">
 							<div
 								class="max-w-[80%] bg-gradient-to-r from-gov-600 to-gov-500 text-white rounded-2xl rounded-tr-sm px-4 py-2.5 shadow-card text-sm leading-relaxed"
 							>
@@ -126,7 +126,7 @@
 
 				<!-- Typing indicator -->
 				{#if chat.isTyping}
-					<div class="flex gap-2 max-w-[90%] animate-fade-in">
+					<div class="flex gap-2 max-w-[90%]">
 						<div
 							class="w-7 h-7 rounded-full bg-gradient-to-br from-gov-600 to-civic-500 flex items-center justify-center shrink-0 mt-0.5"
 						>
@@ -137,9 +137,9 @@
 							</svg>
 						</div>
 						<div class="bg-white rounded-2xl rounded-tl-sm px-4 py-3 shadow-card flex items-center gap-1.5">
-							<span class="w-2 h-2 rounded-full bg-gov-400 animate-bounce" style="animation-delay: 0ms;"></span>
-							<span class="w-2 h-2 rounded-full bg-gov-400 animate-bounce" style="animation-delay: 150ms;"></span>
-							<span class="w-2 h-2 rounded-full bg-gov-400 animate-bounce" style="animation-delay: 300ms;"></span>
+							<span class="w-2 h-2 rounded-full bg-gov-400 animate-bounce"></span>
+							<span class="w-2 h-2 rounded-full bg-gov-400 animate-bounce"></span>
+							<span class="w-2 h-2 rounded-full bg-gov-400 animate-bounce"></span>
 						</div>
 					</div>
 				{/if}
@@ -196,7 +196,7 @@
 		<!-- Unread badge -->
 		{#if !chat.isOpen && chat.unreadCount > 0}
 			<span
-				class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs font-bold rounded-full flex items-center justify-center animate-scale-in"
+				class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs font-bold rounded-full flex items-center justify-center"
 			>
 				{chat.unreadCount}
 			</span>
