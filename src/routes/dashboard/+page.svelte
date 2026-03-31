@@ -442,8 +442,7 @@
 
 			<!-- Search & Filter Bar -->
 			<div
-				class="bg-white rounded-xl shadow-card border border-gov-100 p-4 mb-6 animate-slide-up"
-				style="animation-delay: 250ms"
+				class="bg-white rounded-xl shadow-card border border-gov-100 p-4 mb-6"
 			>
 				<div class="flex flex-col sm:flex-row gap-4">
 					<!-- Search -->
@@ -558,8 +557,7 @@
 						{@const sla = permit.slaDeadline ? slaCountdown(permit.slaDeadline) : null}
 						<a
 							href="/permits/{permit.id}"
-							class="block group bg-white rounded-xl shadow-card hover:shadow-card-hover border border-gov-100 hover:border-gov-200 transition-all duration-200 overflow-hidden animate-slide-up cursor-pointer"
-							style="animation-delay: {300 + i * 60}ms"
+							class="block group bg-white rounded-xl shadow-card hover:shadow-card-hover border border-gov-100 hover:border-gov-200 transition-all duration-200 overflow-hidden cursor-pointer"
 						>
 							<div class="p-5 sm:p-6">
 								<div class="flex flex-col sm:flex-row sm:items-start gap-4">

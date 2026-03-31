@@ -6,17 +6,18 @@
 	const NAV_LINKS: Record<UserRole, { label: string; href: string }[]> = {
 		applicant: [
 			{ label: 'Dashboard', href: '/dashboard' },
-			{ label: 'My Permits', href: '/permits' },
+			{ label: 'New Permit', href: '/permits/new' },
 			{ label: 'Account', href: '/account' }
 		],
 		reviewer: [
-			{ label: 'Work Queue', href: '/queue' },
-			{ label: 'GIS View', href: '/gis' }
+			{ label: 'Work Queue', href: '/reviewer' },
+			{ label: 'Dashboard', href: '/dashboard' }
 		],
 		admin: [
 			{ label: 'Dashboard', href: '/dashboard' },
-			{ label: 'Management', href: '/management' },
-			{ label: 'Reports', href: '/reports' }
+			{ label: 'Management', href: '/admin' },
+			{ label: 'Executive View', href: '/admin/executive' },
+			{ label: 'Inspector', href: '/inspector' }
 		]
 	};
 
