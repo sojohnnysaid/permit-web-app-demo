@@ -1,6 +1,6 @@
 import { defineConfig } from '@playwright/test';
 
-const baseURL = process.env.PLAYWRIGHT_BASE_URL ?? 'https://tops.sogos.io';
+const baseURL = process.env.PLAYWRIGHT_BASE_URL ?? 'https://pmcsllc.sogos.io';
 
 export default defineConfig({
 	testDir: './tests',

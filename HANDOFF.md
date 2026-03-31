@@ -9,7 +9,7 @@
 - **Last Session:** 2026-03-30
 
 ## What Was Completed
-All 10 DDOT demo stages implemented, tested, and deployed to tops.sogos.io:
+All 10 DDOT demo stages implemented, tested, and deployed to pmcsllc.sogos.io:
 
 | Phase | Stages | Status |
 |-------|--------|--------|
@@ -35,11 +35,11 @@ All 10 DDOT demo stages implemented, tested, and deployed to tops.sogos.io:
 ## Deployment
 Push to main → GH Actions builds Docker → GHCR → manually restart pod:
 ```bash
-kubectl --context admin@macmini-cluster -n tops rollout restart deployment tops-frontend
+kubectl --context admin@macmini-cluster -n pmcsllc rollout restart deployment pmcsllc-frontend
 ```
 
 ## Key References
 - Plan: `/Users/john/.claude/plans/mossy-splashing-deer.md`
 - Plane project: TOPS (workspace: sogos, ID: da316c94-b4fa-46dd-aba8-787b157f1fed)
-- Prod: https://tops.sogos.io
+- Prod: https://pmcsllc.sogos.io
 - DDOT report: `DDOT_TOPS_Demo_Report.pdf`

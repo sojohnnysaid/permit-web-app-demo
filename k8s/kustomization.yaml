@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namespace: tops
+namespace: pmcsllc
 
 resources:
   - deployment.yaml
@@ -9,4 +9,4 @@ resources:
 
 labels:
   - pairs:
-      app.kubernetes.io/part-of: tops
+      app.kubernetes.io/part-of: pmcsllc
