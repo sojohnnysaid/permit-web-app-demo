@@ -2,6 +2,7 @@
 	import { goto } from '$app/navigation';
 	import { auth } from '$lib/stores/auth.svelte';
 	import { permits, PERMIT_TYPE_META, type PermitStatus } from '$lib/stores/permits.svelte';
+	import NavHeader from '$lib/components/NavHeader.svelte';
 
 	// Redirect based on auth/role
 	$effect(() => {
@@ -178,10 +179,6 @@
 		}
 	}
 
-	function handleLogout() {
-		auth.logout();
-		goto('/login');
-	}
 </script>
 
 <svelte:head>
@@ -190,88 +187,7 @@
 
 {#if auth.isAuthenticated}
 	<div class="min-h-screen bg-surface-alt">
-		<!-- Top Bar -->
-		<header
-			class="sticky top-0 z-30 bg-white/80 backdrop-blur-xl border-b border-gov-100 shadow-sm"
-		>
-			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				<div class="flex items-center justify-between h-16">
-					<!-- Logo / Brand -->
-					<div class="flex items-center gap-3">
-						<div
-							class="w-9 h-9 rounded-lg bg-gradient-to-br from-gov-700 to-civic-500 flex items-center justify-center"
-						>
-							<svg
-								class="w-5 h-5 text-white"
-								fill="none"
-								stroke="currentColor"
-								viewBox="0 0 24 24"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-								/>
-							</svg>
-						</div>
-						<div>
-							<h1 class="text-lg font-display font-bold text-gov-900 leading-tight">TOPS</h1>
-							<p class="text-xs text-gov-400 -mt-0.5">Transportation & Permits</p>
-						</div>
-					</div>
-
-					<!-- User Section -->
-					<div class="flex items-center gap-4">
-						<!-- Notifications placeholder -->
-						<button
-							class="relative p-2 rounded-lg text-gov-400 hover:text-gov-700 hover:bg-gov-50 transition-colors"
-						>
-							<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-								/>
-							</svg>
-							<span
-								class="absolute top-1.5 right-1.5 w-2 h-2 bg-permit-denied rounded-full"
-							></span>
-						</button>
-
-						<!-- Avatar & Name -->
-						<div class="flex items-center gap-3">
-							<div class="hidden sm:block text-right">
-								<p class="text-sm font-semibold text-gov-900">{auth.user?.name}</p>
-								<p class="text-xs text-gov-400">{auth.user?.email}</p>
-							</div>
-							<div
-								class="w-10 h-10 rounded-full bg-gradient-to-br from-gov-600 to-civic-500 flex items-center justify-center text-white font-bold text-sm shadow-md"
-							>
-								{auth.user?.avatar}
-							</div>
-						</div>
-
-						<!-- Logout -->
-						<button
-							onclick={handleLogout}
-							class="p-2 rounded-lg text-gov-400 hover:text-permit-denied hover:bg-red-50 transition-colors"
-							title="Logout"
-						>
-							<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
-								/>
-							</svg>
-						</button>
-					</div>
-				</div>
-			</div>
-		</header>
+		<NavHeader />
 
 		<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 			<!-- Page Header -->
