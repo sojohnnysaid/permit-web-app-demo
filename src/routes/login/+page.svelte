@@ -73,9 +73,9 @@
 			badge: 'bg-gov-100 text-gov-700'
 		},
 		Administrator: {
-			gradient: 'from-permit-600 to-permit-500',
-			ring: 'ring-permit-500/30',
-			badge: 'bg-permit-100 text-permit-700'
+			gradient: 'from-gov-900 to-gov-700',
+			ring: 'ring-gov-500/30',
+			badge: 'bg-gov-100 text-gov-700'
 		}
 	};
 </script>
