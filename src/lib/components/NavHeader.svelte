@@ -47,9 +47,16 @@
 		}
 	});
 
+	const ROLE_LANDING: Record<UserRole, string> = {
+		applicant: '/dashboard',
+		reviewer: '/reviewer',
+		admin: '/admin'
+	};
+
 	function handleRoleSwitch(role: UserRole) {
 		auth.switchRole(role);
 		roleDropdownOpen = false;
+		goto(ROLE_LANDING[role]);
 	}
 
 	function handleLogout() {

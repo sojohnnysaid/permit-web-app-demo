@@ -41,9 +41,15 @@
 		auth.verifyMfa();
 	}
 
+	const ROLE_LANDING: Record<UserRole, string> = {
+		applicant: '/dashboard',
+		reviewer: '/reviewer',
+		admin: '/admin'
+	};
+
 	function handleRoleSelect(role: UserRole) {
 		auth.switchRole(role);
-		goto('/dashboard');
+		goto(ROLE_LANDING[role]);
 	}
 
 	const roleIcons: Record<string, string> = {

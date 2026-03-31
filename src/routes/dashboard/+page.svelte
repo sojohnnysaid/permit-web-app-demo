@@ -3,10 +3,14 @@
 	import { auth } from '$lib/stores/auth.svelte';
 	import { permits, PERMIT_TYPE_META, type PermitStatus } from '$lib/stores/permits.svelte';
 
-	// Redirect if not authenticated
+	// Redirect based on auth/role
 	$effect(() => {
 		if (!auth.isAuthenticated) {
 			goto('/login');
+		} else if (auth.role === 'reviewer') {
+			goto('/reviewer');
+		} else if (auth.role === 'admin') {
+			goto('/admin');
 		}
 	});
 
